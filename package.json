@@ -2,10 +2,13 @@
   "name": "my-portfolio-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pankaj-shrivastava.github.io/my-portfolio-project/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "download-fonts": "node ./scripts/download-fonts.js",
     "build:gh": "vite build --base /my-portfolio-project/"
   },
@@ -14,10 +17,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
     "@vitejs/plugin-react": "^4.0.0",
-    "tailwindcss": "^3.4.8",
+    "autoprefixer": "^10.4.0",
     "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0"
+    "tailwindcss": "^3.4.8",    
+    "gh-pages": "^6.3.0",
+    "vite": "^5.0.0"
   }
 }
