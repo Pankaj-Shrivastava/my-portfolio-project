@@ -31,3 +31,24 @@ What's next:
 # my-portfolio-project
 
 SPA portfolio
+
+## Deploy to GitHub Pages
+
+This repository includes a GitHub Actions workflow that builds the app and deploys the `dist/` output to the `gh-pages` branch when you push to `main`.
+
+Steps to enable deployment:
+
+1. Push your branch to GitHub (the workflow triggers on pushes to `main`).
+2. The workflow will run `npm ci`, `npm run build` and publish `dist/` to `gh-pages` using the built-in `GITHUB_TOKEN`.
+3. In your repository on GitHub, go to Settings → Pages and choose the `gh-pages` branch as the site source (or GitHub may auto-configure this for you). The site will be available at:
+
+   https://<your-github-username>.github.io/my-portfolio-project/
+
+Local preview with the repo base path set:
+
+```powershell
+npm run build:gh
+npm run preview
+```
+
+If you'd rather use the `gh-pages` npm package instead of Actions, tell me and I can switch the setup.
