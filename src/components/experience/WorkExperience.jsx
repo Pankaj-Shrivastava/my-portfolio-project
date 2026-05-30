@@ -1,6 +1,6 @@
 export default function WorkExperience() {
   return (
-    <section className="mt-20">
+    <section id="work-experience" className="mt-20">
       <h2 className="text-3xl font-bold tracking-tight mb-8 text-slate-800">Work Experience</h2>
       <div className="space-y-6">
         {/* Placeholder project cards */}
