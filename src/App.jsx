@@ -4,8 +4,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import WorkExperience from './components/experience/WorkExperience'
 import Footer from './components/Footer'
-import PMNotebook from './components/PMNotebook'
-import CaseStudies from './components/CaseStudies'
+import PMNotebook from './components/pmNotebook/PMNotebook'
+import CaseStudies from './components/caseStudies/CaseStudies'
 
 function Home() {
   return (
