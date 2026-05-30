@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
 export default function PMNotebook() {
   const [entries, setEntries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +16,7 @@ export default function PMNotebook() {
           return;
         }
 
-        const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?content_type=pmNotebookEntry`;
+        const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?content_type=pmNotebookEntry&select=fields.title,fields.slug,fields.date`;
         const response = await fetch(url, {
           headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`,
@@ -28,13 +27,8 @@ export default function PMNotebook() {
 
         if (data.items) {
           const formattedEntries = data.items.map((item) => ({
-            id: item.sys.id,
-            title: item.fields.title,
-            date: new Date(item.fields.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-            content: item.fields.content,
-            tags: item.fields.tags || [],
+            ...item.fields,
           }));
-
           setEntries(formattedEntries.sort((a, b) => new Date(b.date) - new Date(a.date)));
         }
       } catch (error) {
@@ -47,6 +41,9 @@ export default function PMNotebook() {
     fetchEntries();
   }, []);
 
+  const preface = entries.find(entry => entry.slug === 'preface');
+  const chapters = entries.filter(entry => entry.slug !== 'preface');
+
   return (
     <main className="flex-1 container mx-auto px-6 py-16 max-w-4xl">
       <div className="mb-8">
@@ -54,10 +51,10 @@ export default function PMNotebook() {
           <span className="mr-2">←</span> Back to Portfolio
         </Link>
       </div>
-      
+
       <section id="pm-notebook">
         <h2 className="text-3xl font-bold tracking-tight mb-8 text-slate-900">Product Management Notebook</h2>
-        
+
         {isLoading ? (
           <div className="flex justify-center py-12">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900"></div>
@@ -65,30 +62,19 @@ export default function PMNotebook() {
         ) : entries.length === 0 ? (
           <p className="text-slate-500">No notebook entries found. Start writing in your CMS!</p>
         ) : (
-          <div className="relative border-l-2 border-slate-200 ml-3 md:ml-4 space-y-8">
-            {entries.map((entry) => (
-            <div key={entry.id} className="pl-6 md:pl-8 relative">
-              {/* Timeline dot */}
-              <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-900 ring-4 ring-white"></span>
-              
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
-                  <h3 className="text-xl font-semibold text-slate-900">{entry.title}</h3>
-                  <time className="text-sm font-medium text-slate-500 mt-1 sm:mt-0">{entry.date}</time>
-                </div>
-                <p className="text-slate-600 leading-relaxed">{entry.content}</p>
-                
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {entry.tags.map((tag, index) => (
-                    <span key={index} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-50 text-slate-600 border border-slate-200">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+          <div className="bg-white border border-slate-200 rounded-2xl shadow-sm">
+            {preface && (
+              <Link to={`/pm-notebook/${preface.slug}`} className="block p-6 border-b border-slate-200 hover:bg-slate-50 transition-colors">
+                <h3 className="text-xl font-semibold text-slate-900">{preface.title}</h3>
+                <p className="text-slate-500 mt-1">An introduction to the notebook.</p>
+              </Link>
+            )}
+            <ol className="divide-y divide-slate-200">
+              {chapters.map((chapter, index) => (
+                <li key={chapter.slug}><Link to={`/pm-notebook/${chapter.slug}`} className="block p-6 hover:bg-slate-50 transition-colors"><span className="text-slate-500 mr-4">{index + 1}.</span><span className="font-medium text-slate-800">{chapter.title}</span></Link></li>
+              ))}
+            </ol>
+          </div>
         )}
       </section>
     </main>

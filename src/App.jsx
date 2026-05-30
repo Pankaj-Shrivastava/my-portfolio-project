@@ -4,7 +4,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import WorkExperience from './components/experience/WorkExperience'
 import Footer from './components/Footer'
-import PMNotebook from './components/pmNotebook/PMNotebook'
+import PMNotebookTOC from './components/pmNotebook/PMNotebook' // Renamed for clarity
+import NotebookEntryPage from './components/pmNotebook/NotebookEntryPage'
 import CaseStudies from './components/caseStudies/CaseStudies'
 
 function Home() {
@@ -43,7 +44,8 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pm-notebook" element={<PMNotebook />} />
+          <Route path="/pm-notebook" element={<PMNotebookTOC />} />
+          <Route path="/pm-notebook/:slug" element={<NotebookEntryPage />} />
         </Routes>
         <Footer />
       </div>
