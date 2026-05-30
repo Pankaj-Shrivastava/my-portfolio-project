@@ -1,4 +1,4 @@
-# My Portfolio - Skeleton
+# Pankaj Shrivastava | Portfolio
 
 This is a minimal React + Vite + Tailwind skeleton for a responsive portfolio SPA. It imports existing CSS files (`CSSOne.css`, `CSSTwo.css`, `CSSThree.CSS`) so their font-face and reset rules are preserved.
 
