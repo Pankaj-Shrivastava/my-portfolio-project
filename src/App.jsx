@@ -2,15 +2,17 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Education from './components/education/Education'
 import WorkExperience from './components/experience/WorkExperience'
 import Footer from './components/Footer'
 import PMDiary from './components/PMDiary'
+import CaseStudies from './components/CaseStudies'
 
 function Home() {
   return (
     <main className="flex-1 container mx-auto px-6 py-16 max-w-6xl">
       <Hero />
+      <CaseStudies />      
+      <WorkExperience />
       <section id="projects" className="mt-20">
         <h2 className="text-3xl font-bold tracking-tight mb-8 text-slate-800">Featured Projects</h2>
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -30,8 +32,6 @@ function Home() {
           ))}
         </div>
       </section>
-      <WorkExperience />
-      <Education />
     </main>
   )
 }
