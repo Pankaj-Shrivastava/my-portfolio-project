@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import WorkExperience from './components/experience/WorkExperience'
 import Footer from './components/Footer'
-import PMDiary from './components/PMDiary'
+import PMNotebook from './components/PMNotebook'
 import CaseStudies from './components/CaseStudies'
 
 function Home() {
@@ -43,7 +43,7 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pm-diary" element={<PMDiary />} />
+          <Route path="/pm-notebook" element={<PMNotebook />} />
         </Routes>
         <Footer />
       </div>

@@ -12,7 +12,7 @@ export default function Header() {
 
   const scrollToSection = (id) => {
     setIsMenuOpen(false);
-    // Timeout ensures navigation from other pages (e.g. /pm-diary) completes before scrolling
+    // Timeout ensures navigation from other pages (e.g. /pm-notebook) completes before scrolling
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
@@ -44,7 +44,7 @@ export default function Header() {
           <Link to="/#case-studies" onClick={() => scrollToSection('case-studies')} className={getLinkStyle('/', '#case-studies')}>Case Studies</Link>
           <Link to="/#work-experience" onClick={() => scrollToSection('work-experience')} className={getLinkStyle('/', '#work-experience')}>Work Experience</Link>
           <Link to="/#projects" onClick={() => scrollToSection('projects')} className={getLinkStyle('/', '#projects')}>Projects</Link>
-          <Link to="/pm-diary" className={getLinkStyle('/pm-diary', '')}>PM Notebook</Link>
+          <Link to="/pm-notebook" className={getLinkStyle('/pm-notebook', '')}>PM Notebook</Link>
         </nav>
         <div className="md:hidden">
           <button 
@@ -62,7 +62,7 @@ export default function Header() {
           <Link to="/#case-studies" onClick={() => scrollToSection('case-studies')} className={getMobileLinkStyle('/', '#case-studies')}>Case Studies</Link>
           <Link to="/#work-experience" onClick={() => scrollToSection('work-experience')} className={getMobileLinkStyle('/', '#work-experience')}>Work Experience</Link>
           <Link to="/#projects" onClick={() => scrollToSection('projects')} className={getMobileLinkStyle('/', '#projects')}>Projects</Link>
-          <Link to="/pm-diary" onClick={() => setIsMenuOpen(false)} className={getMobileLinkStyle('/pm-diary', '')}>PM Notebook</Link>
+          <Link to="/pm-notebook" onClick={() => setIsMenuOpen(false)} className={getMobileLinkStyle('/pm-notebook', '')}>PM Notebook</Link>
         </nav>
       )}
     </header>
