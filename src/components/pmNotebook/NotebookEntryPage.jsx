@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-export default function NotebookEntryPage() {
-  const { slug } = useParams();
+export default function NotebookEntryPage({ slug }) {
   const [entry, setEntry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,29 +38,27 @@ export default function NotebookEntryPage() {
     }
   }, [slug]);
 
-  return (
-    <main className="flex-1 container mx-auto px-6 py-16 max-w-4xl">
-      <div className="mb-8">
-        <Link to="/pm-notebook" className="text-slate-600 hover:text-slate-900 font-medium inline-flex items-center transition-colors">
-          <span className="mr-2">←</span> Back to Table of Contents
-        </Link>
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-12 bg-white border border-slate-200 rounded-2xl shadow-sm min-h-[300px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900"></div>
       </div>
+    );
+  }
 
-      {isLoading ? (
-        <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900"></div>
-        </div>
-      ) : entry ? (
-        <article className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">{entry.fields.title}</h1>
-          <time className="block text-slate-500 mb-8">{new Date(entry.fields.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-          <div className="prose prose-slate lg:prose-lg max-w-none">
-            {documentToReactComponents(entry.fields.content)}
-          </div>
-        </article>
-      ) : (
-        <p className="text-slate-500">Entry not found.</p>
-      )}
-    </main>
+  if (!entry) {
+    return (
+      <div className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm flex items-center justify-center text-slate-500 min-h-[300px]">
+        Entry not found.
+      </div>
+    );
+  }
+
+  return (
+    <article className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm">
+      <div className="prose prose-slate lg:prose-lg max-w-none">
+        {documentToReactComponents(entry.fields.content)}
+      </div>
+    </article>
   );
 }
