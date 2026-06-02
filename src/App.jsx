@@ -5,7 +5,6 @@ import Hero from './components/Hero'
 import WorkExperience from './components/experience/WorkExperience'
 import Footer from './components/Footer'
 import PMNotebookTOC from './components/pmNotebook/PMNotebook' // Renamed for clarity
-import NotebookEntryPage from './components/pmNotebook/NotebookEntryPage'
 import CaseStudies from './components/caseStudies/CaseStudies'
 
 function Home() {
@@ -45,7 +44,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pm-notebook" element={<PMNotebookTOC />} />
-          <Route path="/pm-notebook/:slug" element={<NotebookEntryPage />} />
         </Routes>
         <Footer />
       </div>
