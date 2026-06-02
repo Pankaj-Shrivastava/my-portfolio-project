@@ -20,7 +20,7 @@ export default function PMNotebook() {
           return;
         }
 
-        const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?content_type=pmNotebookEntry&select=fields.title,fields.slug,fields.date`;
+        const url = `https://cdn.contentful.com/spaces/${SPACE_ID}/environments/master/entries?content_type=pmNotebookEntry&select=sys.createdAt,fields.title,fields.slug`;
         const response = await fetch(url, {
           headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`,
@@ -32,8 +32,9 @@ export default function PMNotebook() {
         if (data.items) {
           const formattedEntries = data.items.map((item) => ({
             ...item.fields,
+            createdAt: item.sys.createdAt,
           }));
-          const sortedEntries = formattedEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+          const sortedEntries = formattedEntries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
           setEntries(sortedEntries);
 
           const prefaceEntry = sortedEntries.find(entry => entry.slug === 'preface');

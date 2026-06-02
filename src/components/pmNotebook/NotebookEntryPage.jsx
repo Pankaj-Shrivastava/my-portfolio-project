@@ -56,8 +56,6 @@ export default function NotebookEntryPage({ slug }) {
 
   return (
     <article className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm">
-      <h1 className="text-3xl font-bold tracking-tight text-slate-900 mb-4">{entry.fields.title}</h1>
-      <time className="block text-slate-500 mb-8">{new Date(entry.fields.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
       <div className="prose prose-slate lg:prose-lg max-w-none">
         {documentToReactComponents(entry.fields.content)}
       </div>
