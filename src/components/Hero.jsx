@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start py-10 md:py-20">
       <div className="order-first md:col-span-1">
-        <div className="w-full aspect-square bg-white rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+        <div className="w-5/6 md:w-4/5 mx-auto aspect-square bg-white rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
           <img 
             src={`${import.meta.env.BASE_URL}images/profile.jpg`}
             alt="Pankaj Shrivastava" 
