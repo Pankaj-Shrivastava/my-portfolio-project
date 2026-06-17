@@ -3,17 +3,17 @@ import React from 'react'
 export default function Hero() {
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-10 md:py-20">
-      <div className="order-first lg:order-last">
-        <div className="w-full aspect-square md:aspect-[4/3] bg-white rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+    <section className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start py-10 md:py-20">
+      <div className="order-first md:col-span-1">
+        <div className="w-full aspect-square bg-white rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
           <img 
-            src="/images/profile-placeholder.svg" 
+            src={`${import.meta.env.BASE_URL}images/profile.jpg`}
             alt="Pankaj Shrivastava" 
             className="w-full h-full object-cover"
           />
         </div>
       </div>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col md:col-span-2">
         <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">About</p>
         <h2 className="text-2xl font-bold text-slate-900 mb-1">Senior Product Manager</h2>
         <p className="text-slate-600 font-medium mb-6">Grow Therapy</p>
