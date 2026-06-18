@@ -1,4 +1,6 @@
 import React from 'react'
+import Timeline from './Timeline'
+import { aboutContent } from './data/aboutData'
 
 export default function Hero() {
 
@@ -13,16 +15,27 @@ export default function Hero() {
           />
         </div>
         <div className="mt-6 text-center">
-          <h3 className="text-xl font-bold text-slate-900 tracking-tight">Grow Therapy</h3>
-          <p className="text-slate-500 font-medium italic mt-1">Senior Product Manager</p>
+          <Timeline />
         </div>
       </div>
       <div className="flex flex-col md:col-span-2">
         <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">About</p>
-        <p className="text-lg text-slate-600 leading-relaxed max-w-prose mb-8">
-          I majored in Computer Science and am passionate about building products that solve real user problems. With a background in product management and a focus on user experience, I've led cross-functional teams to deliver innovative solutions. Currently leveraging data-driven insights to inform strategic decisions and drive business growth.
-        </p>
-        <button className="px-6 py-3 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-xl shadow-sm transition-all duration-300 w-fit">Contact me</button>
+        <div className="text-lg text-slate-600 leading-relaxed max-w-prose mb-8 space-y-4">
+          {aboutContent.bio.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+        <a 
+          href="https://www.linkedin.com/in/pankaj-vijay-shrivastava/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          aria-label="View my LinkedIn profile"
+          className="inline-flex items-center justify-center w-12 h-12 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-600 rounded-xl shadow-sm transition-all duration-300"
+        >
+          <img 
+            src={`${import.meta.env.BASE_URL}images/linkedin.svg`} 
+            alt="LinkedIn Icon" />
+        </a>
       </div>
     </section>
   )
