@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
   const scrollToTop = () => {
@@ -35,8 +36,29 @@ export default function Header() {
     }`;
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate scroll percentage
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      setScrollProgress(scrolled)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <header className="w-full border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+      <div 
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500"
+        style={{ 
+          width: `${scrollProgress}%`,
+          boxShadow: scrollProgress > 0 ? '0 -1px 4px rgba(71, 85, 105, 0.15)' : 'none',
+          willChange: 'width'
+        }}
+      />
       <div className="container mx-auto px-6 py-4 max-w-6xl flex items-center justify-between">
         <Link to="/" onClick={scrollToTop} className="text-2xl font-extrabold text-slate-900 tracking-tight">Pankaj Shrivastava</Link>
         <nav className="hidden md:flex gap-6 items-center">
