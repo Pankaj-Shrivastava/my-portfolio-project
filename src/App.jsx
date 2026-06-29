@@ -19,7 +19,7 @@ function Home() {
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {projectsData.map((project) => (
             <div key={project.id} className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-              <div className="h-48 bg-slate-100 rounded-xl mb-6 overflow-hidden relative">
+              <div className="aspect-video bg-slate-100 rounded-xl mb-6 overflow-hidden relative">
                 <img src={`${import.meta.env.BASE_URL}${project.image}`} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 group-hover:text-slate-600 transition-colors duration-300">{project.title}</h3>
