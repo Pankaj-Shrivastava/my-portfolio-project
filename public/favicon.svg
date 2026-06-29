@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#0f172a"/>
+  
+  <!-- Inkpot base -->
+  <path d="M 35 60 L 65 60 L 70 85 L 30 85 Z" fill="#f8fafc"/>
+  
+  <!-- Inkpot rim -->
+  <ellipse cx="50" cy="60" rx="16" ry="6" fill="#cbd5e1"/>
+  <ellipse cx="50" cy="58" rx="12" ry="4" fill="#0f172a"/>
+  
+  <!-- Quill/Feather -->
+  <path d="M 52 56 Q 70 20 85 15 Q 75 35 55 58 Z" fill="#f8fafc"/>
+  <path d="M 52 56 L 80 20" stroke="#0f172a" stroke-width="2" fill="none"/>
+</svg>

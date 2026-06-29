@@ -49,4 +49,14 @@ export const timelineData = [
     type: 'work',
     isCurrent: false,
   },
+  {
+    id: 6,
+    logo: 'rgpv_logo.jpeg',
+    organization: 'RGPV Bhopal',
+    role: 'BE, Information Technology',
+    dateFrom: 'July 2012',
+    dateTo: 'June 2016',
+    type: 'education',
+    isCurrent: true,
+  },
 ];
