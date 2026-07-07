@@ -5,7 +5,7 @@ import { aboutContent } from './data/aboutData'
 export default function Hero() {
 
   return (
-    <section className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-start py-6 md:py-12">
+    <section id="about" className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-start py-6 md:py-12">
       <div className="order-first md:col-span-1">
         <div className="w-5/6 md:w-4/5 mx-auto aspect-square bg-white rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
           <img 
@@ -19,8 +19,8 @@ export default function Hero() {
         </div>
       </div>
       <div className="flex flex-col md:col-span-2">
-        <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">About</p>
-        <div className="text-lg text-slate-600 leading-relaxed max-w-prose mb-8 space-y-4">
+        <p className="text-base font-semibold text-slate-500 uppercase tracking-wide mb-4">About</p>
+        <div className="text-base md:text-lg text-slate-500 leading-relaxed max-w-prose mb-8 space-y-3">
           {aboutContent.bio.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}

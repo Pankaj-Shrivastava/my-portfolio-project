@@ -68,14 +68,8 @@ export default function PMNotebook() {
 
   return (
     <main className="flex-1 container mx-auto px-6 py-16 max-w-6xl">
-      <div className="mb-8">
-        <Link to="/" className="text-slate-600 hover:text-slate-900 font-medium inline-flex items-center transition-colors">
-          <span className="mr-2">←</span> Back to Portfolio
-        </Link>
-      </div>
-
       <section id="pm-notebook">
-        <h2 className="text-3xl font-bold tracking-tight mb-8 text-slate-900">Product Management Notebook</h2>
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-slate-800">Product Management Notebook</h2>
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           
           {/* Left Sidebar: Table of Contents */}
@@ -85,21 +79,21 @@ export default function PMNotebook() {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900"></div>
               </div>
             ) : entries.length === 0 ? (
-              <p className="text-slate-500">No notebook entries found. Start writing in your CMS!</p>
+              <p className="text-base text-slate-500">No notebook entries found. Start writing in your CMS!</p>
             ) : (
               <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                 {preface && (
-                  <button onClick={() => handleEntryClick(preface.slug)} className={`w-full text-left block p-6 border-b border-slate-200 transition-colors ${activeSlug === preface.slug ? 'bg-slate-100' : 'hover:bg-slate-50'}`}>
-                    <h3 className="text-xl font-semibold text-slate-900">{preface.title}</h3>
-                    <p className="text-slate-500 mt-1">An introduction to the notebook.</p>
+                  <button onClick={() => handleEntryClick(preface.slug)} className={`w-full text-left block p-5 border-b border-slate-200 transition-colors ${activeSlug === preface.slug ? 'bg-slate-100' : 'hover:bg-slate-50'}`}>
+                    <h3 className="text-base font-semibold text-slate-800">{preface.title}</h3>
+                    <p className="text-sm text-slate-400 mt-1">An introduction to the notebook.</p>
                   </button>
                 )}
                 <ol className="divide-y divide-slate-200">
                   {chapters.map((chapter, index) => (
                     <li key={chapter.slug}>
-                      <button onClick={() => handleEntryClick(chapter.slug)} className={`w-full text-left block p-6 transition-colors ${activeSlug === chapter.slug ? 'bg-slate-100' : 'hover:bg-slate-50'}`}>
-                        <span className="text-slate-500 mr-4">{index + 1}.</span>
-                        <span className="font-medium text-slate-800">{chapter.title}</span>
+                      <button onClick={() => handleEntryClick(chapter.slug)} className={`w-full text-left block px-5 py-4 transition-colors ${activeSlug === chapter.slug ? 'bg-slate-100' : 'hover:bg-slate-50'}`}>
+                        <span className="text-sm text-slate-400 mr-3">{index + 1}.</span>
+                        <span className="text-base font-medium text-slate-700">{chapter.title}</span>
                       </button>
                     </li>
                   ))}

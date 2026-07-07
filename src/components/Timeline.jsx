@@ -46,9 +46,9 @@ export default function Timeline() {
               onClick={() => isTouchDevice && handleTouchToggle(entry.id)}
               className={`flex-1 py-0.5 px-2 rounded transition-all duration-200 relative group cursor-pointer ${
                 entry.type === 'education'
-                  ? 'bg-blue-50 border border-blue-100'
+                  ? 'bg-blue-50'
                   : hoveredId === entry.id 
-                    ? 'bg-slate-50 border border-slate-200' 
+                    ? 'bg-slate-50' 
                     : ''
               }`}
             >
