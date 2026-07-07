@@ -19,8 +19,8 @@ export default function Hero() {
         </div>
       </div>
       <div className="flex flex-col md:col-span-2">
-        <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">About</p>
-        <div className="text-lg text-slate-600 leading-relaxed max-w-prose mb-8 space-y-4">
+        <p className="text-base font-semibold text-slate-500 uppercase tracking-wide mb-4">About</p>
+        <div className="text-base md:text-lg text-slate-500 leading-relaxed max-w-prose mb-8 space-y-3">
           {aboutContent.bio.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}

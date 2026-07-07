@@ -2,30 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Minimal reset (adapted from original CSSOne.css) */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+@layer base {
+  /* Body: comfortable line-height + font smoothing */
+  body {
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /*
+   * Global heading defaults — applied via @layer base so utility classes
+   * can still override per-element. This is the Tailwind-recommended pattern.
+   */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: #1e293b; /* slate-800 */
+  }
+
+  p {
+    color: #475569; /* slate-600 */
+  }
 }
-
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,ul { list-style: none }
-blockquote,q { quotes: none }
-blockquote:before,blockquote:after,q:before,q:after { content: none }
-table { border-collapse: collapse; border-spacing: 0 }
-
-html, body, #root { height: 100%; }
 
 /* Local font-face declarations. The fonts will be downloaded into
    /public/fonts by the `npm run download-fonts` script. */
@@ -70,3 +69,9 @@ html, body, #root { height: 100%; }
 body {
   font-family: 'EpilogueLocal', 'MulishLocal', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }

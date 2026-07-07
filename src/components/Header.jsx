@@ -24,15 +24,15 @@ export default function Header() {
 
   const getLinkStyle = (path, hash) => {
     const isActive = location.pathname === path && location.hash === hash;
-    return `text-sm font-medium transition-colors ${
-      isActive ? 'text-slate-900 font-semibold' : 'text-slate-500 hover:text-slate-900'
+    return `text-base font-medium transition-colors ${
+      isActive ? 'text-slate-900 font-semibold' : 'text-slate-400 hover:text-slate-700'
     }`;
   };
 
   const getMobileLinkStyle = (path, hash) => {
     const isActive = location.pathname === path && location.hash === hash;
     return `text-base font-medium transition-colors block ${
-      isActive ? 'text-slate-900 font-semibold' : 'text-slate-500 hover:text-slate-900'
+      isActive ? 'text-slate-900 font-semibold' : 'text-slate-400 hover:text-slate-700'
     }`;
   };
 
@@ -60,7 +60,7 @@ export default function Header() {
         }}
       />
       <div className="container mx-auto px-6 py-4 max-w-6xl flex items-center justify-between">
-        <Link to="/" onClick={scrollToTop} className="text-2xl font-extrabold text-slate-900 tracking-tight">Pankaj Shrivastava</Link>
+        <Link to="/" onClick={scrollToTop} className="text-lg font-semibold text-slate-900 tracking-tight">Pankaj Shrivastava</Link>
         <nav className="hidden md:flex gap-6 items-center">
           <Link to="/" onClick={scrollToTop} className={getLinkStyle('/', '')}>About</Link>
           <Link to="/#case-studies" onClick={() => scrollToSection('case-studies')} className={getLinkStyle('/', '#case-studies')}>Case Studies</Link>
