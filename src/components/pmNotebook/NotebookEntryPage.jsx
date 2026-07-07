@@ -5,6 +5,7 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 export default function NotebookEntryPage({ slug }) {
   const [entry, setEntry] = useState(null);
   const [linkedEntries, setLinkedEntries] = useState([]);
+  const [linkedAssets, setLinkedAssets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,8 +28,9 @@ export default function NotebookEntryPage({ slug }) {
 
         if (data.items && data.items.length > 0) {
           setEntry(data.items[0]);
-          if (data.includes && data.includes.Entry) {
-            setLinkedEntries(data.includes.Entry);
+          if (data.includes) {
+            if (data.includes.Entry) setLinkedEntries(data.includes.Entry);
+            if (data.includes.Asset) setLinkedAssets(data.includes.Asset);
           }
         }
       } catch (error) {
@@ -61,6 +63,32 @@ export default function NotebookEntryPage({ slug }) {
 
   const richTextOptions = {
     renderNode: {
+      // Embedded images (inline or block assets)
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const assetId = node.data?.target?.sys?.id;
+        const asset = linkedAssets.find(a => a.sys.id === assetId);
+        if (!asset) return null;
+
+        const { file, title, description } = asset.fields;
+        const imageUrl = file?.url ? `https:${file.url}` : null;
+        if (!imageUrl) return null;
+
+        return (
+          <figure className="my-8">
+            <img
+              src={imageUrl}
+              alt={description || title || ''}
+              className="w-full rounded-xl border border-slate-200 shadow-sm"
+            />
+            {(description || title) && (
+              <figcaption className="mt-2 text-center text-sm text-slate-400">
+                {description || title}
+              </figcaption>
+            )}
+          </figure>
+        );
+      },
+
       [BLOCKS.TABLE]: (node, children) => (
         <div className="overflow-x-auto my-8 border border-slate-200 rounded-lg shadow-sm">
           <table className="min-w-full divide-y divide-slate-200 m-0">

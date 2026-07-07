@@ -5,7 +5,7 @@ import { aboutContent } from './data/aboutData'
 export default function Hero() {
 
   return (
-    <section className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-start py-6 md:py-12">
+    <section id="about" className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-start py-6 md:py-12">
       <div className="order-first md:col-span-1">
         <div className="w-5/6 md:w-4/5 mx-auto aspect-square bg-white rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
           <img 

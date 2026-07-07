@@ -68,12 +68,6 @@ export default function PMNotebook() {
 
   return (
     <main className="flex-1 container mx-auto px-6 py-16 max-w-6xl">
-      <div className="mb-8">
-        <Link to="/" className="text-slate-600 hover:text-slate-900 font-medium inline-flex items-center transition-colors">
-          <span className="mr-2">←</span> Back to Portfolio
-        </Link>
-      </div>
-
       <section id="pm-notebook">
         <h2 className="text-xl font-semibold tracking-tight mb-6 text-slate-800">Product Management Notebook</h2>
         <div className="flex flex-col lg:flex-row gap-8 items-start">

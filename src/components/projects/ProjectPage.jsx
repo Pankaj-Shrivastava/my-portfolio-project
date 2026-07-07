@@ -7,6 +7,7 @@ export default function ProjectPage() {
   const { slug } = useParams();
   const [project, setProject] = useState(null);
   const [linkedEntries, setLinkedEntries] = useState([]);
+  const [linkedAssets, setLinkedAssets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -30,8 +31,9 @@ export default function ProjectPage() {
 
         if (data.items && data.items.length > 0) {
           setProject(data.items[0]);
-          if (data.includes && data.includes.Entry) {
-            setLinkedEntries(data.includes.Entry);
+          if (data.includes) {
+            if (data.includes.Entry) setLinkedEntries(data.includes.Entry);
+            if (data.includes.Asset) setLinkedAssets(data.includes.Asset);
           }
         }
       } catch (error) {
@@ -71,6 +73,32 @@ export default function ProjectPage() {
 
   const richTextOptions = {
     renderNode: {
+      // Embedded images (inline or block assets)
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const assetId = node.data?.target?.sys?.id;
+        const asset = linkedAssets.find(a => a.sys.id === assetId);
+        if (!asset) return null;
+
+        const { file, title, description } = asset.fields;
+        const imageUrl = file?.url ? `https:${file.url}` : null;
+        if (!imageUrl) return null;
+
+        return (
+          <figure className="my-8">
+            <img
+              src={imageUrl}
+              alt={description || title || ''}
+              className="w-full rounded-xl border border-slate-200 shadow-sm"
+            />
+            {(description || title) && (
+              <figcaption className="mt-2 text-center text-sm text-slate-400">
+                {description || title}
+              </figcaption>
+            )}
+          </figure>
+        );
+      },
+
       [BLOCKS.TABLE]: (node, children) => (
         <div className="overflow-x-auto my-8 border border-slate-200 rounded-lg shadow-sm">
           <table className="min-w-full divide-y divide-slate-200 m-0">
@@ -124,11 +152,6 @@ export default function ProjectPage() {
 
   return (
     <main className="flex-1 container mx-auto px-6 py-16 max-w-3xl">
-       <div className="mb-8">
-        <Link to="/#projects" className="text-slate-600 hover:text-slate-900 font-medium inline-flex items-center transition-colors">
-          <span className="mr-2">←</span> Back to Projects
-        </Link>
-      </div>
       <article className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm">
         <h1 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4 text-slate-800">{project.fields.title}</h1>
         <div className="prose prose-slate max-w-none">
