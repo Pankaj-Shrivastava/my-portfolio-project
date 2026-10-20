@@ -12,8 +12,8 @@ import {
 import { DoodleArrow } from './doodle/DoodleArrow';
 
 export default function Hero() {
-  // Avatar mode toggle: 'dev' (desk setup) or 'explorer' (motorcycle)
-  const [avatarMode, setAvatarMode] = useState('explorer');
+  // Avatar mode toggle: 'trailblazer' (motorcycle) or 'catalyst' (leadership/photo)
+  const [avatarMode, setAvatarMode] = useState('trailblazer');
 
   return (
     <section id="about" className="pt-6 pb-16 relative scroll-mt-24">
@@ -102,23 +102,23 @@ export default function Hero() {
             <div className="flex items-center gap-2 mb-3 bg-paper p-1 rounded-full border-1.5 border-ink shadow-doodle-sm">
               <button
                 type="button"
-                onClick={() => setAvatarMode('explorer')}
-                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all ${avatarMode === 'explorer'
+                onClick={() => setAvatarMode('trailblazer')}
+                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all ${avatarMode === 'trailblazer'
                   ? 'bg-doodle-coral text-white shadow-[1px_1px_0px_#231F20]'
                   : 'text-ink-muted hover:text-ink'
                   }`}
               >
-                🏍️ Explorer
+                🏍️ Trailblazer
               </button>
               <button
                 type="button"
-                onClick={() => setAvatarMode('dev')}
-                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all ${avatarMode === 'dev'
+                onClick={() => setAvatarMode('catalyst')}
+                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all ${avatarMode === 'catalyst'
                   ? 'bg-doodle-sage text-white shadow-[1px_1px_0px_#231F20]'
                   : 'text-ink-muted hover:text-ink'
                   }`}
               >
-                💻 Developer
+                💡 Catalyst
               </button>
             </div>
 
@@ -130,7 +130,7 @@ export default function Hero() {
 
               {/* Main Illustration Card */}
               <div className="w-full h-full bg-paper-muted border-2 border-ink border-sketch shadow-doodle-md overflow-hidden relative transition-transform duration-300 group-hover:scale-[1.02]">
-                {avatarMode === 'explorer' ? (
+                {avatarMode === 'trailblazer' ? (
                   <div className="relative w-full h-full">
                     <img
                       src={`${import.meta.env.BASE_URL}images/pankaj-motorcycle-doodle.jpg`}
@@ -138,7 +138,7 @@ export default function Hero() {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute bottom-2 right-2 bg-paper/90 px-2 py-0.5 border border-ink rounded text-[11px] font-doodle font-bold text-ink shadow-sm">
-                      Ride & Code 🌟
+                      Trailblazing 🌟
                     </div>
                   </div>
                 ) : (
@@ -149,7 +149,7 @@ export default function Hero() {
                       className="w-36 h-36 rounded-full object-cover border-2 border-ink shadow-doodle-sm mb-3"
                     />
                     <div className="font-doodle text-lg font-bold text-ink">Pankaj Shrivastava</div>
-                    <p className="font-doodle text-xs text-ink-muted">Building impactful products</p>
+                    <p className="font-doodle text-xs text-ink-muted">Product Builder &amp; Catalyst</p>
                   </div>
                 )}
               </div>

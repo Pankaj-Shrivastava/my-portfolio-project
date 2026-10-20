@@ -13,7 +13,7 @@
 | **ADR-03** | Dedicated Education Section & Synchronized Page Flow | **Accepted** | Oct 2026 |
 | **ADR-04** | Sticky Header Scroll Margins (`scroll-mt-*`) Standard | **Accepted** | Oct 2026 |
 | **ADR-05** | Tactile 3D Clickability & Doodle Micro-Interactions | **Accepted** | Oct 2026 |
-| **ADR-06** | Dual Avatar Mode (Explorer vs Developer Persona) | **Accepted** | Oct 2026 |
+| **ADR-06** | Dual Avatar Mode (Trailblazer vs Catalyst Persona) | **Accepted** | Oct 2026 |
 | **ADR-07** | Hero Positioning as Product Builder, Natural Leader & Collaborative Catalyst | **Accepted** | Oct 2026 |
 
 ---
@@ -107,16 +107,16 @@ Implemented a unified affordance layer:
 
 ---
 
-### ADR-06: Dual Avatar Mode (Explorer vs Developer Persona)
+### ADR-06: Dual Avatar Mode (Trailblazer vs Catalyst Persona)
 
 #### Context
-Pankaj has two complementary identities: a technical Full-Stack Developer and an adventurous Tech Explorer / vintage motorcycle enthusiast.
+Pankaj embodies two complementary energies: a free-spirited adventurer who navigates open roads and uncharted territory, and an empathetic product leader/catalyst who sparks clarity, alignment, and team execution.
 
 #### Decision
 Integrated an interactive mode switcher in `Hero.jsx`:
-- **Explorer Mode**: Displays the full-color vintage motorcycle illustration in nature.
-- **Developer Mode**: Displays the developer desk portrait.
-- Accessible via interactive pill toggles (`🏍️ Explorer` vs `💻 Developer`).
+- **Trailblazer Mode (`🏍️ Trailblazer`)**: Displays the vintage motorcycle doodle illustration in nature with the *"Trailblazing 🌟"* tag.
+- **Catalyst Mode (`💡 Catalyst`)**: Displays the portrait card highlighting *"Product Builder & Catalyst"*.
+- Accessible via interactive pill toggles styled with doodle borders and active 3D pressable state.
 
 ---
 
