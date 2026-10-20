@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { DoodleStar, DoodleRaysLeft } from '../doodle/DoodleDecors';
 
 export default function ProjectPage() {
   const { slug } = useParams();
@@ -50,9 +51,9 @@ export default function ProjectPage() {
 
   if (isLoading) {
     return (
-      <main className="flex-1 container mx-auto px-6 py-16 max-w-3xl">
-        <div className="flex items-center justify-center py-12 bg-white border border-slate-200 rounded-2xl shadow-sm min-h-[300px]">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900"></div>
+      <main className="flex-1 container mx-auto px-6 py-16 max-w-4xl">
+        <div className="flex items-center justify-center py-16 bg-paper-card border-2 border-ink rounded-2xl shadow-doodle min-h-[300px]">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ink"></div>
         </div>
       </main>
     );
@@ -60,11 +61,16 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <main className="flex-1 container mx-auto px-6 py-16 max-w-3xl">
-        <div className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm flex flex-col items-center justify-center text-slate-500 min-h-[300px]">
-          <p className="mb-4">Project not found in CMS. Make sure a 'project' entry with slug '{slug}' exists.</p>
-          <Link to="/#projects" className="text-slate-600 hover:text-slate-900 font-medium inline-flex items-center transition-colors">
-            <span className="mr-2">←</span> Back to Portfolio
+      <main className="flex-1 container mx-auto px-6 py-16 max-w-4xl">
+        <div className="doodle-card p-8 md:p-12 rounded-2xl flex flex-col items-center justify-center text-center text-ink min-h-[300px]">
+          <p className="font-doodle text-xl mb-6">
+            Project entry for <span className="font-bold text-doodle-coral">"{slug}"</span> not found in CMS.
+          </p>
+          <Link 
+            to="/#projects" 
+            className="pressable-btn px-5 py-2.5 bg-doodle-coral text-white font-doodle text-lg font-bold rounded-xl shadow-doodle"
+          >
+            ← Back to Sketchbook
           </Link>
         </div>
       </main>
@@ -73,7 +79,6 @@ export default function ProjectPage() {
 
   const richTextOptions = {
     renderNode: {
-      // Embedded images (inline or block assets)
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const assetId = node.data?.target?.sys?.id;
         const asset = linkedAssets.find(a => a.sys.id === assetId);
@@ -88,10 +93,10 @@ export default function ProjectPage() {
             <img
               src={imageUrl}
               alt={description || title || ''}
-              className="w-full rounded-xl border border-slate-200 shadow-sm"
+              className="w-full rounded-2xl border-2 border-ink shadow-doodle-sm"
             />
             {(description || title) && (
-              <figcaption className="mt-2 text-center text-sm text-slate-400">
+              <figcaption className="mt-2 text-center text-sm font-doodle text-ink-muted">
                 {description || title}
               </figcaption>
             )}
@@ -100,24 +105,24 @@ export default function ProjectPage() {
       },
 
       [BLOCKS.TABLE]: (node, children) => (
-        <div className="overflow-x-auto my-8 border border-slate-200 rounded-lg shadow-sm">
-          <table className="min-w-full divide-y divide-slate-200 m-0">
-            <tbody className="divide-y divide-slate-200 bg-white">
+        <div className="overflow-x-auto my-8 border-2 border-ink rounded-xl shadow-doodle-sm">
+          <table className="min-w-full divide-y-2 divide-ink m-0">
+            <tbody className="divide-y divide-ink/20 bg-paper-card">
               {children}
             </tbody>
           </table>
         </div>
       ),
       [BLOCKS.TABLE_ROW]: (node, children) => (
-        <tr className="hover:bg-slate-50 transition-colors m-0">{children}</tr>
+        <tr className="hover:bg-paper-muted transition-colors m-0">{children}</tr>
       ),
       [BLOCKS.TABLE_CELL]: (node, children) => (
-        <td className="px-6 py-4 whitespace-normal text-base text-slate-700 align-top m-0">
+        <td className="px-6 py-4 whitespace-normal text-base text-ink align-top m-0 font-sans">
           {children}
         </td>
       ),
       [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-        <th className="px-6 py-3 bg-slate-50 text-left text-sm font-semibold text-slate-900 uppercase tracking-wider m-0">
+        <th className="px-6 py-3 bg-paper-muted text-left text-sm font-bold font-doodle text-ink uppercase tracking-wider m-0 border-b-2 border-ink">
           {children}
         </th>
       ),
@@ -135,14 +140,14 @@ export default function ProjectPage() {
         }
         
         return (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline decoration-blue-300 hover:decoration-blue-800 transition-colors font-medium">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="text-doodle-coral hover:text-doodle-coral-dark underline font-bold transition-colors">
             {children}
           </a>
         );
       },
       [INLINES.HYPERLINK]: (node, children) => {
         return (
-          <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline decoration-blue-300 hover:decoration-blue-800 transition-colors font-medium">
+          <a href={node.data.uri} target="_blank" rel="noopener noreferrer" className="text-doodle-coral hover:text-doodle-coral-dark underline font-bold transition-colors">
             {children}
           </a>
         );
@@ -151,10 +156,33 @@ export default function ProjectPage() {
   };
 
   return (
-    <main className="flex-1 container mx-auto px-6 py-16 max-w-3xl">
-      <article className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm">
-        <h1 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4 text-slate-800">{project.fields.title}</h1>
-        <div className="prose prose-slate max-w-none">
+    <main className="flex-1 container mx-auto px-6 py-12 max-w-4xl">
+      <div className="mb-6">
+        <Link 
+          to="/#projects" 
+          className="pressable-btn inline-flex items-center gap-2 px-4 py-1.5 bg-paper-card border-2 border-ink rounded-xl font-doodle text-base font-bold text-ink shadow-doodle-sm"
+        >
+          <span>←</span> Back to Projects
+        </Link>
+      </div>
+
+      <article className="doodle-card p-8 md:p-12 rounded-2xl shadow-doodle relative">
+        <div className="absolute -top-3.5 -right-3 text-doodle-mustard">
+          <DoodleStar className="w-8 h-8" />
+        </div>
+
+        <div className="flex items-center gap-2 mb-3">
+          <DoodleRaysLeft className="w-6 h-6 text-doodle-coral" />
+          <span className="font-doodle text-sm font-bold uppercase tracking-wider text-doodle-coral">
+            Project Case Study
+          </span>
+        </div>
+
+        <h1 className="text-3xl md:text-5xl font-extrabold font-doodle tracking-tight mb-6 text-ink">
+          {project.fields.title}
+        </h1>
+
+        <div className="prose prose-slate max-w-none text-ink font-sans leading-relaxed">
           {documentToReactComponents(project.fields.details, richTextOptions)}
         </div>
       </article>

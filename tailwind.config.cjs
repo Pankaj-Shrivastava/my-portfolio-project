@@ -2,6 +2,55 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        paper: {
+          DEFAULT: '#FDFBF7',
+          card: '#FFFDF9',
+          muted: '#F5EFE6',
+          border: '#E8DFD5',
+        },
+        ink: {
+          DEFAULT: '#231F20',
+          dark: '#161314',
+          light: '#59534E',
+          muted: '#8C827A',
+        },
+        doodle: {
+          coral: '#E57368',
+          'coral-dark': '#CE5C52',
+          'coral-light': '#FCDCD9',
+          sage: '#6C8B74',
+          'sage-dark': '#55725D',
+          'sage-light': '#DCEBE0',
+          mustard: '#E9B84C',
+          'mustard-dark': '#CF9B2E',
+          'mustard-light': '#FDF1D6',
+          terracotta: '#D96B4F',
+          blue: '#6B9AC4',
+          'blue-light': '#E0EFFB',
+        },
+      },
+      fontFamily: {
+        doodle: ['"Patrick Hand"', '"Gaegu"', 'cursive', 'sans-serif'],
+        hand: ['"Gaegu"', '"Patrick Hand"', 'cursive'],
+        sans: ['"Plus Jakarta Sans"', '"EpilogueLocal"', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+      boxShadow: {
+        'doodle-sm': '2px 2px 0px #231F20',
+        doodle: '3px 3px 0px #231F20',
+        'doodle-md': '4px 4px 0px #231F20',
+        'doodle-lg': '6px 6px 0px #231F20',
+        'doodle-hover': '5px 5px 0px #231F20',
+        'doodle-pressed': '1px 1px 0px #231F20',
+        'doodle-coral': '4px 4px 0px #CE5C52',
+        'doodle-mustard': '4px 4px 0px #CF9B2E',
+      },
+      borderRadius: {
+        doodle: '255px 15px 225px 15px/15px 225px 15px 255px',
+        'doodle-sm': '125px 10px 115px 10px/10px 115px 10px 125px',
+        'doodle-pill': '255px 25px 225px 25px/25px 225px 25px 255px',
+        'doodle-round': '50% 50% 50% 50% / 60% 60% 40% 40%',
+      },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {

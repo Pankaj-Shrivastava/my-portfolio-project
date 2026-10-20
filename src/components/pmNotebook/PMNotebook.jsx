@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import NotebookEntryPage from './NotebookEntryPage'
+import React, { useState, useEffect, useRef } from 'react';
+import NotebookEntryPage from './NotebookEntryPage';
+import { DoodleStar, DoodleRaysLeft, DoodleScribble } from '../doodle/DoodleDecors';
 
 export default function PMNotebook() {
   const [entries, setEntries] = useState([]);
@@ -59,7 +59,7 @@ export default function PMNotebook() {
     if (window.innerWidth < 1024 && contentRef.current) {
       setTimeout(() => {
         contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100); // Small timeout to ensure smooth transition
+      }, 100);
     }
   };
 
@@ -67,33 +67,75 @@ export default function PMNotebook() {
   const chapters = entries.filter(entry => entry.slug !== 'preface');
 
   return (
-    <main className="flex-1 container mx-auto px-6 py-16 max-w-6xl">
+    <main className="flex-1 container mx-auto px-6 py-12 max-w-6xl">
       <section id="pm-notebook">
-        <h2 className="text-xl font-semibold tracking-tight mb-6 text-slate-800">Product Management Notebook</h2>
+        
+        {/* Notebook Header Banner */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b-2 border-dashed border-ink/20">
+          <div className="flex items-center gap-3">
+            <DoodleRaysLeft className="w-7 h-7 text-doodle-mustard" />
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-extrabold font-doodle text-ink tracking-tight">
+                <span className="highlighter-mustard">Product Management Notebook</span>
+              </h1>
+              <p className="font-doodle text-base text-ink-muted mt-1">
+                Field notes, product tear-downs, frameworks & design philosophies.
+              </p>
+            </div>
+          </div>
+          <DoodleStar className="w-8 h-8 text-doodle-coral hidden sm:block animate-star-spin" />
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           
-          {/* Left Sidebar: Table of Contents */}
+          {/* Left Sidebar: Sketchbook Index / TOC */}
           <aside className="w-full lg:w-1/3 flex-shrink-0 lg:sticky lg:top-24">
             {isLoading ? (
-              <div className="flex justify-center py-12 bg-white border border-slate-200 rounded-2xl shadow-sm">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900"></div>
+              <div className="flex justify-center py-12 bg-paper-card border-2 border-ink rounded-2xl shadow-doodle">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-ink"></div>
               </div>
             ) : entries.length === 0 ? (
-              <p className="text-base text-slate-500">No notebook entries found. Start writing in your CMS!</p>
+              <div className="p-6 bg-paper-card border-2 border-ink rounded-2xl shadow-doodle text-center">
+                <p className="font-doodle text-lg text-ink-muted">No notebook entries found yet.</p>
+              </div>
             ) : (
-              <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+              <div className="doodle-card rounded-2xl overflow-hidden shadow-doodle">
+                <div className="bg-paper-muted px-5 py-3 border-b-2 border-ink flex items-center justify-between">
+                  <span className="font-doodle text-sm font-bold tracking-wider uppercase text-ink">
+                    📑 Table of Contents
+                  </span>
+                  <span className="text-xs font-doodle text-ink-muted">{entries.length} notes</span>
+                </div>
+
                 {preface && (
-                  <button onClick={() => handleEntryClick(preface.slug)} className={`w-full text-left block p-5 border-b border-slate-200 transition-colors ${activeSlug === preface.slug ? 'bg-slate-100' : 'hover:bg-slate-50'}`}>
-                    <h3 className="text-base font-semibold text-slate-800">{preface.title}</h3>
-                    <p className="text-sm text-slate-400 mt-1">An introduction to the notebook.</p>
+                  <button 
+                    onClick={() => handleEntryClick(preface.slug)} 
+                    className={`w-full text-left block p-5 border-b-2 border-ink/20 transition-all font-doodle ${
+                      activeSlug === preface.slug 
+                        ? 'bg-doodle-mustard/20 font-bold border-l-4 border-l-doodle-coral text-ink' 
+                        : 'hover:bg-paper-muted text-ink-light'
+                    }`}
+                  >
+                    <div className="text-lg font-bold">{preface.title}</div>
+                    <p className="text-sm text-ink-muted mt-0.5">An introduction to the notebook.</p>
                   </button>
                 )}
-                <ol className="divide-y divide-slate-200">
+
+                <ol className="divide-y divide-ink/10">
                   {chapters.map((chapter, index) => (
                     <li key={chapter.slug}>
-                      <button onClick={() => handleEntryClick(chapter.slug)} className={`w-full text-left block px-5 py-4 transition-colors ${activeSlug === chapter.slug ? 'bg-slate-100' : 'hover:bg-slate-50'}`}>
-                        <span className="text-sm text-slate-400 mr-3">{index + 1}.</span>
-                        <span className="text-base font-medium text-slate-700">{chapter.title}</span>
+                      <button 
+                        onClick={() => handleEntryClick(chapter.slug)} 
+                        className={`w-full text-left block px-5 py-4 transition-all font-doodle ${
+                          activeSlug === chapter.slug 
+                            ? 'bg-doodle-mustard/20 font-bold border-l-4 border-l-doodle-coral text-ink' 
+                            : 'hover:bg-paper-muted text-ink-light'
+                        }`}
+                      >
+                        <span className="text-xs font-bold text-doodle-coral mr-2.5">
+                          #{String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="text-base font-semibold">{chapter.title}</span>
                       </button>
                     </li>
                   ))}
@@ -103,13 +145,12 @@ export default function PMNotebook() {
           </aside>
 
           {/* Right Area: Entry Content */}
-          {/* Added scroll-mt-24 to prevent the content from hiding behind the sticky header on mobile scroll */}
           <div className="w-full lg:w-2/3 scroll-mt-24" ref={contentRef}>
             {activeSlug ? (
               <NotebookEntryPage slug={activeSlug} />
             ) : (
-              <div className="bg-white p-8 md:p-12 border border-slate-200 rounded-2xl shadow-sm flex items-center justify-center text-slate-500 min-h-[300px]">
-              No entries available to display.
+              <div className="doodle-card p-8 md:p-12 rounded-2xl flex items-center justify-center text-ink-muted min-h-[300px]">
+                <p className="font-doodle text-xl">Select a chapter from the left to start reading.</p>
               </div>
             )}
           </div>
@@ -117,5 +158,5 @@ export default function PMNotebook() {
         </div>
       </section>
     </main>
-  )
+  );
 }
