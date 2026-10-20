@@ -217,9 +217,9 @@ Following the narrative rewrite, presenting the Experience & Education Timeline 
    - Combined `<Timeline />` and the bio story into a single master sketchbook card (`border-sketch`, `shadow-doodle-md`, `bg-paper-card`).
    - **Desktop (`lg`+)**: Split rail with Journey Milestones on the left (4 cols, framed in `bg-paper/60`) and the narrative story on the right (8 cols).
    - **Mobile / Tablet (`< lg`)**: Dynamic reordering placing the story first (`order-1`), followed immediately by the interactive Journey Milestones (`order-2`).
-2. **Typography Refinement (Treatment 2: Clean & Elegant)**:
+2. **Typography Refinement (Natural Text with Inline Icons)**:
    - **Undid Highlighter Marks in Paragraphs 1 & 2**: Reverted leadership phrases (`"creating order where there’s ambiguity"`, `"master hard things from first principles"`, `"eliminate genuine friction"`, and `"pragmatic bridge"`) back to clean, natural text for an effortless, undistracted reading experience.
-   - **Minimalist Pastel Marks in Paragraph 3**: Replaced the tactile boxed button pills for `🎨 artist`, `🍳 home cook`, `💛 father`, and `🧭 traveler` with Treatment 2 (minimalist pastel highlighter marks without dark borders, heavy shadows, or tilted rotations).
+   - **Inline Icons without Highlights or Bold in Paragraph 3**: Positioned emoji icons (`🎨`, `🍳`, `💛`, `🧭`) directly next to their identity terms (`artist`, `home cook`, `father`, `traveler`) using standard regular font weight and zero background highlights.
    - Maintained `whitespace-nowrap` on emoji-word pairings to ensure emojis never separate from their nouns during line wrapping.
 
 #### Consequences
