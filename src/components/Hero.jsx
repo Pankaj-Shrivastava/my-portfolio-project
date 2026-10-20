@@ -10,10 +10,12 @@ import {
   DoodleScribble
 } from './doodle/DoodleDecors';
 import { DoodleArrow } from './doodle/DoodleArrow';
+import ContactModal from './contact/ContactModal';
 
 export default function Hero() {
   // Avatar mode toggle: 'trailblazer' (motorcycle) or 'catalyst' (leadership/photo)
   const [avatarMode, setAvatarMode] = useState('trailblazer');
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <section id="about" className="pt-6 pb-16 relative scroll-mt-24">
@@ -65,7 +67,7 @@ export default function Hero() {
             {/* CTAs with Doodle Arrow Indicator */}
             <div className="flex flex-wrap items-center gap-4 relative">
               <DoodleButton
-                href="mailto:pankaj.shrivastava.work@gmail.com"
+                onClick={() => setIsContactOpen(true)}
                 variant="coral"
                 size="lg"
                 sparkles={true}
@@ -229,22 +231,29 @@ export default function Hero() {
                 <span>LinkedIn Profile ↗</span>
               </a>
 
-              <a
-                href="mailto:pankaj.shrivastava.work@gmail.com"
-                className="pressable-btn inline-flex items-center gap-2 px-4 py-2 bg-doodle-coral text-white rounded-xl font-doodle text-base font-bold shadow-doodle-sm"
+              <button
+                type="button"
+                onClick={() => setIsContactOpen(true)}
+                className="pressable-btn inline-flex items-center gap-2 px-4 py-2 bg-doodle-coral text-white rounded-xl font-doodle text-base font-bold shadow-doodle-sm cursor-pointer"
               >
                 <span>✉️ Email Me</span>
-              </a>
+              </button>
             </div>
 
             <span className="font-doodle text-xs text-ink-muted">
-              Based in India · Open to global opportunities 🌍
+              📍 Greater Bengaluru Area
             </span>
           </div>
 
         </div>
 
       </div>
+
+      {/* Handcrafted Contact Postcard Modal */}
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </section>
   );
 }

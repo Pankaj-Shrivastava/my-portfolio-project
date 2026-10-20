@@ -347,7 +347,7 @@ export default function RecentProjects() {
               💡 Have a custom project or technical idea in mind?
             </span>
             <a 
-              href="mailto:pankaj.shrivastava.work@gmail.com" 
+              href="mailto:pankajvijayshrivastava@gmail.com" 
               className="font-doodle text-base font-bold text-doodle-coral underline hover:text-doodle-coral-dark ml-1"
             >
               Let's build it together →

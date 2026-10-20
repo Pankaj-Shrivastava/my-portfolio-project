@@ -15,6 +15,7 @@
 | **ADR-05** | Tactile 3D Clickability & Doodle Micro-Interactions | **Accepted** | Oct 2026 |
 | **ADR-06** | Dual Avatar Mode (Trailblazer vs Catalyst Persona) | **Accepted** | Oct 2026 |
 | **ADR-07** | Hero Positioning as Product Builder, Natural Leader & Collaborative Catalyst | **Accepted** | Oct 2026 |
+| **ADR-08** | Contact Postcard Modal with Copy Email & LinkedIn Redirection | **Accepted** | Oct 2026 |
 
 ---
 
@@ -134,4 +135,29 @@ The original role badge read *"Full-Stack Developer & Tech Explorer"*. Pankaj's 
 #### Consequences
 - Directly addresses hiring managers and recruiters looking for high-ownership Product Managers and technical leaders.
 - Communicates genuine servant leadership and team-first collaboration over solo heroics.
+
+---
+
+### ADR-08: Contact Postcard Modal with Copy Email & LinkedIn Redirection
+
+#### Context
+Visitors clicking "Get in touch" previously triggered a generic `mailto:` link. Visitors need frictionless access to Pankaj's verified communication channels (LinkedIn & primary email) with an intuitive copy action and delightful sketchbook branding.
+
+#### Decision
+1. Implemented `ContactModal.jsx` featuring:
+   - Postcard stamp badge: **`🗺️ Wanderer’s Curiosity · Builder’s Focus 💡`**
+   - Handcrafted headline: *"The best journeys start with a simple 'hello'."*
+   - Subtitle: *"From zero-to-one problem discovery to rallying teams around a shared vision, let’s explore how we can create real impact together."*
+   - Micro doodle note: *"✨ No formalities needed—just honest problem solving!"*
+2. Interactive Channel Blocks:
+   - **Email Block**: Displays `pankajvijayshrivastava@gmail.com` with a pressable **`📋 Copy Email`** button (switches to **`✅ Copied!`** with sparkles) plus a direct mail app button (`↗`).
+   - **LinkedIn Block**: Displays profile path and a pressable **`Connect on LinkedIn ↗`** CTA opening `https://www.linkedin.com/in/pankaj-vijay-shrivastava/` in a new tab (`target="_blank" rel="noopener noreferrer"`).
+3. Accessibility & UX:
+   - ESC key and backdrop click close triggers.
+   - Body scroll locking while active.
+
+#### Consequences
+- Eliminates mail client launch friction for webmail users.
+- Increases connection rate for recruiters, referrals, and collaborators.
+
 

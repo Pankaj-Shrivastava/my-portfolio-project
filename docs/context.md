@@ -86,7 +86,8 @@ my-portfolio-project/
 
 ### 4.2 Home Page Core Sections (`App.jsx`)
 - **`Hero.jsx` (`#about`)**:
-  - Dual-column layout: Left column features role positioning (*"Product Builder & Natural Leader · Driven by Impact"*), hook paragraph, and pressable CTAs; right column features interactive avatar switcher (Trailblazer vs Catalyst Mode) + journey `Timeline.jsx`.
+  - Dual-column layout: Left column features role positioning (*"Product Builder & Natural Leader · Driven by Impact"*), hook paragraph, and pressable CTAs (including "Get in Touch" triggering `ContactModal.jsx`); right column features interactive avatar switcher (Trailblazer vs Catalyst Mode) + journey `Timeline.jsx`.
+  - Integrates `ContactModal.jsx` with copy-to-clipboard email and new-tab LinkedIn redirection.
 - **`RecentProjects.jsx` (`#projects`)**:
   - 2x2 grid of illustrated cards with custom SVG artwork, tech pills, micro-copy doodle cues ("Hover for magic!", "Try it!"), and 3D pressable "View Project" buttons.
 - **`CaseStudies.jsx` (`#teardowns`)**:
