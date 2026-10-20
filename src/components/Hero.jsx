@@ -99,11 +99,11 @@ export default function Hero() {
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
 
             {/* Hand-drawn Mode Switcher Pills */}
-            <div className="flex items-center gap-2 mb-3 bg-paper p-1 rounded-full border-1.5 border-ink shadow-doodle-sm">
+            <div className="flex items-center gap-2 mb-3 bg-paper p-1 rounded-full border-1.5 border-ink shadow-doodle-sm relative z-30">
               <button
                 type="button"
                 onClick={() => setAvatarMode('trailblazer')}
-                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all ${avatarMode === 'trailblazer'
+                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all cursor-pointer ${avatarMode === 'trailblazer'
                   ? 'bg-doodle-coral text-white shadow-[1px_1px_0px_#231F20]'
                   : 'text-ink-muted hover:text-ink'
                   }`}
@@ -113,7 +113,7 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => setAvatarMode('catalyst')}
-                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all ${avatarMode === 'catalyst'
+                className={`px-3 py-1 rounded-full text-xs font-doodle font-bold transition-all cursor-pointer ${avatarMode === 'catalyst'
                   ? 'bg-doodle-sage text-white shadow-[1px_1px_0px_#231F20]'
                   : 'text-ink-muted hover:text-ink'
                   }`}
