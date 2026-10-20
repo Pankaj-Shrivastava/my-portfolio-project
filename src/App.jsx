@@ -6,6 +6,7 @@ import WorkExperience from './components/experience/WorkExperience'
 import Footer from './components/Footer'
 import PMNotebookTOC from './components/pmNotebook/PMNotebook' // Renamed for clarity
 import CaseStudies from './components/caseStudies/CaseStudies'
+import Education from './components/education/Education'
 import ProjectPage from './components/projects/ProjectPage'
 import RecentProjects from './components/projects/RecentProjects'
 
@@ -15,6 +16,7 @@ function Home() {
       <Hero />
       <RecentProjects />
       <CaseStudies />      
+      <Education />
       <WorkExperience />
     </main>
   )

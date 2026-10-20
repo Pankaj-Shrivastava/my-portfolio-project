@@ -42,7 +42,7 @@ export default function Header() {
       return;
     }
 
-    const sectionIds = ['about', 'teardowns', 'work-experience', 'projects'];
+    const sectionIds = ['about', 'projects', 'teardowns', 'education', 'experience'];
     const elements = sectionIds
       .map(id => document.getElementById(id))
       .filter(Boolean);
@@ -145,13 +145,13 @@ export default function Header() {
           <nav className="flex items-center gap-3 text-lg font-doodle tracking-wide">
             <Link to="/" onClick={scrollToTop} className={`transition-colors px-2 py-0.5 ${isActive('/', 'about') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>ABOUT</Link>
             <span className="text-ink/30 select-none">|</span>
-            <Link to="/#teardowns" onClick={() => scrollToSection('teardowns')} className={`transition-colors px-2 py-0.5 ${isActive('/', 'teardowns') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>TEARDOWNS</Link>
-            <span className="text-ink/30 select-none">|</span>
-            <Link to="/#work-experience" onClick={() => scrollToSection('work-experience')} className={`transition-colors px-2 py-0.5 ${isActive('/', 'work-experience') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>EXPERIENCE</Link>
-            <span className="text-ink/30 select-none">|</span>
             <Link to="/#projects" onClick={() => scrollToSection('projects')} className={`transition-colors px-2 py-0.5 ${isActive('/', 'projects') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>PROJECTS</Link>
             <span className="text-ink/30 select-none">|</span>
-            <Link to="/pm-notebook" className={`transition-colors px-2 py-0.5 ${isActive('/pm-notebook', '') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>PM NOTEBOOK</Link>
+            <Link to="/#teardowns" onClick={() => scrollToSection('teardowns')} className={`transition-colors px-2 py-0.5 ${isActive('/', 'teardowns') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>TEARDOWNS</Link>
+            <span className="text-ink/30 select-none">|</span>
+            <Link to="/#education" onClick={() => scrollToSection('education')} className={`transition-colors px-2 py-0.5 ${isActive('/', 'education') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>EDUCATION</Link>
+            <span className="text-ink/30 select-none">|</span>
+            <Link to="/#experience" onClick={() => scrollToSection('experience')} className={`transition-colors px-2 py-0.5 ${isActive('/', 'experience') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>EXPERIENCE</Link>
           </nav>
         </div>
 
@@ -159,11 +159,13 @@ export default function Header() {
         <div className="hidden md:flex lg:hidden items-center gap-2 text-base font-doodle">
           <Link to="/" onClick={scrollToTop} className={`px-2 py-0.5 ${isActive('/', 'about') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>ABOUT</Link>
           <span className="text-ink/30">|</span>
-          <Link to="/#teardowns" onClick={() => scrollToSection('teardowns')} className={`px-2 py-0.5 ${isActive('/', 'teardowns') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>TEARDOWNS</Link>
-          <span className="text-ink/30">|</span>
           <Link to="/#projects" onClick={() => scrollToSection('projects')} className={`px-2 py-0.5 ${isActive('/', 'projects') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>PROJECTS</Link>
           <span className="text-ink/30">|</span>
-          <Link to="/pm-notebook" className={`px-2 py-0.5 ${isActive('/pm-notebook', '') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>NOTEBOOK</Link>
+          <Link to="/#teardowns" onClick={() => scrollToSection('teardowns')} className={`px-2 py-0.5 ${isActive('/', 'teardowns') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>TEARDOWNS</Link>
+          <span className="text-ink/30">|</span>
+          <Link to="/#education" onClick={() => scrollToSection('education')} className={`px-2 py-0.5 ${isActive('/', 'education') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>EDUCATION</Link>
+          <span className="text-ink/30">|</span>
+          <Link to="/#experience" onClick={() => scrollToSection('experience')} className={`px-2 py-0.5 ${isActive('/', 'experience') ? 'highlighter-mustard font-bold text-ink' : 'text-ink-light hover:text-ink'}`}>EXPERIENCE</Link>
         </div>
 
         {/* Mobile menu trigger */}
@@ -182,10 +184,10 @@ export default function Header() {
       {isMenuOpen && (
         <nav className="md:hidden bg-paper-card border-b-2 border-ink px-6 py-5 flex flex-col gap-3 shadow-doodle absolute w-full left-0 z-50">
           <Link to="/" onClick={scrollToTop} className={`text-xl font-doodle py-1 ${isActive('/', 'about') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>About</Link>
+          <Link to="/#projects" onClick={() => scrollToSection('projects')} className={`text-xl font-doodle py-1 ${isActive('/', 'projects') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>Projects</Link>
           <Link to="/#teardowns" onClick={() => scrollToSection('teardowns')} className={`text-xl font-doodle py-1 ${isActive('/', 'teardowns') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>Teardowns</Link>
-          <Link to="/#work-experience" onClick={() => scrollToSection('work-experience')} className={`text-xl font-doodle py-1 ${isActive('/', 'work-experience') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>Work Experience</Link>
-          <Link to="/#projects" onClick={() => scrollToSection('projects')} className={`text-xl font-doodle py-1 ${isActive('/', 'projects') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>Recent Projects</Link>
-          <Link to="/pm-notebook" onClick={() => setIsMenuOpen(false)} className={`text-xl font-doodle py-1 ${isActive('/pm-notebook', '') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>PM Notebook</Link>
+          <Link to="/#education" onClick={() => scrollToSection('education')} className={`text-xl font-doodle py-1 ${isActive('/', 'education') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>Education</Link>
+          <Link to="/#experience" onClick={() => scrollToSection('experience')} className={`text-xl font-doodle py-1 ${isActive('/', 'experience') ? 'font-bold text-doodle-coral' : 'text-ink'}`}>Work Experience</Link>
         </nav>
       )}
     </header>

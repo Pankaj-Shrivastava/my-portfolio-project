@@ -58,13 +58,16 @@ my-portfolio-project/
         ├── data/
         │   ├── aboutData.js   # Personal biography and core professional value propositions
         │   └── timelineData.js# Structured timeline milestones (IBM, Accenture, Nextleap, etc.)
+        ├── education/
+        │   └── Education.jsx  # Dedicated education milestones (Nextleap Fellowship, RGPV B.E.)
         ├── experience/
         │   └── WorkExperience.jsx # Work history cards with role descriptions and badges
         ├── pmNotebook/
-        │   ├── PMNotebook.jsx # Sidebar TOC and dynamic Contentful article loader
+        │   ├── PMNotebook.jsx # Standalone TOC and dynamic Contentful article loader
         │   └── NotebookEntryPage.jsx # Rich-text renderer for PM articles, tables, and images
         └── projects/
-            └── ProjectPage.jsx# Contentful-backed single project detailed showcase page
+            ├── ProjectPage.jsx    # Contentful-backed single project detailed showcase page
+            └── RecentProjects.jsx # 2x2 interactive doodle cards with 3D pressable buttons
 ```
 
 ---
@@ -73,25 +76,25 @@ my-portfolio-project/
 
 ### 4.1 Navigation & Layout
 - **`Header.jsx`**:
-  - Sticky glassmorphic navbar (`top-0 z-50`).
-  - Supports smooth in-page hash scrolling (`#case-studies`, `#work-experience`, `#projects`) even when navigating across routes (e.g. from `/pm-notebook` back to `/`).
-  - Mobile responsive hamburger menu with flyout drawer.
+  - Sticky paper header with hand-drawn scroll progress line, botanical vine trim, and sketchbook navigation tabs.
+  - Primary navigation topics (ordered): **About**, **Projects**, **Teardowns**, **Education**, **Experience**.
+  - Direct smooth hash scrolling (`#about`, `#projects`, `#teardowns`, `#education`, `#experience`) with `scroll-mt-28` / `scroll-mt-32` offsets ensuring headings are 100% visible beneath the sticky navbar.
+  - PM Notebook link removed from top navigation to streamline recruiter scanning (available at `/pm-notebook`).
+  - Mobile responsive hamburger menu with paper flyout drawer.
 - **`Footer.jsx`**:
-  - Site footer with copyright notice and subtle branding.
+  - Site footer with handcrafted signature, copyright, and "Back to Top ↑" pressable button.
 
 ### 4.2 Home Page Core Sections (`App.jsx`)
-- **`Hero.jsx`**:
-  - Dual-column responsive layout: left column displays personal avatar image + `Timeline.jsx`; right column displays the "About" section and bio paragraphs from `aboutData.js` + LinkedIn button.
-- **`Timeline.jsx`**:
-  - Chronological vertical timeline connecting milestones with dots and SVG-style stems.
-  - Interactive tooltip revealing start/end dates on hover or tap (touch-device aware).
-  - Categorizes items into `work` and `education` with distinct styling.
-- **`CaseStudies.jsx` (Teardowns / Under the Hood)**:
-  - 2-column grid of strategic product teardowns with "under the hood 🔍" doodle annotation, deconstructing UX friction, funnels, and enterprise system scale with "Inspect Teardown →" action buttons.
-- **`WorkExperience.jsx`**:
-  - Vertical stack of role entries featuring accent vertical badges, time period pills, company titles, and responsibilities.
-- **Featured Projects Section (`App.jsx`)**:
-  - 6-card grid with project preview thumbnails, titles, descriptions, and technology pills (React, Tailwind, etc.).
+- **`Hero.jsx` (`#about`)**:
+  - Dual-column layout: Left column features interactive avatar switcher (Motorcycle Explorer vs Dev Mode) + journey `Timeline.jsx`; right column features the "About" narrative, bio paragraphs, and pressable CTAs.
+- **`RecentProjects.jsx` (`#projects`)**:
+  - 2x2 grid of illustrated cards with custom SVG artwork, tech pills, micro-copy doodle cues ("Hover for magic!", "Try it!"), and 3D pressable "View Project" buttons.
+- **`CaseStudies.jsx` (`#teardowns`)**:
+  - Strategic product teardowns with a whimsical "under the hood 🔍" doodle sticker and curved arrow, deconstructing UX friction, funnels, and enterprise system scale with "Inspect Teardown →" action buttons.
+- **`Education.jsx` (`#education`)**:
+  - Dedicated education section showcasing Nextleap PM Fellowship and RGPV Bachelor of Engineering in IT, complete with institution badges, dates, and core learning highlights.
+- **`WorkExperience.jsx` (`#experience`)**:
+  - Vertical stack of role entries (Nextleap, IBM, Accenture, CGI) featuring ink accent stripes, date badges, and skill checklists.
 
 ### 4.3 Digital Notebook (`pmNotebook/`)
 - **`PMNotebook.jsx`**:

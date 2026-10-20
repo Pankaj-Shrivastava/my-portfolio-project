@@ -38,7 +38,9 @@ export default function WorkExperience() {
   ];
 
   return (
-    <section id="work-experience" className="mt-20 relative scroll-mt-28">
+    <section id="experience" className="mt-20 relative scroll-mt-28">
+      {/* Alias for backwards compatibility */}
+      <span id="work-experience" className="absolute -top-28 pointer-events-none" />
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           <DoodleRaysLeft className="w-6 h-6 text-doodle-mustard" />
