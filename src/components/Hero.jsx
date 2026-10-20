@@ -27,10 +27,10 @@ export default function Hero() {
           <DoodleStar className="w-8 h-8 text-doodle-mustard" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 items-center">
 
           {/* Left Column: Greeting, Role Badge & CTA (order-2 on mobile, order-1 on lg) */}
-          <div className="lg:col-span-7 flex flex-col items-start relative z-10 order-2 lg:order-1">
+          <div className="w-full lg:col-span-7 flex flex-col items-start relative z-10 order-2 lg:order-1">
 
             {/* Top Micro Doodle with Arrow */}
             <div className="flex items-center gap-2 mb-1">
@@ -55,7 +55,7 @@ export default function Hero() {
             <div className="mb-6 inline-flex items-center gap-2 px-5 py-2 border-2 border-ink border-sketch-pill bg-paper shadow-doodle-sm">
               <span className="w-2 h-2 rounded-full bg-doodle-sage animate-ping"></span>
               <span className="font-doodle text-lg sm:text-xl font-bold text-ink">
-                Product Builder & Natural Leader · Driven by Impact
+                Product Builder & Natural Leader · Driven by Values
               </span>
             </div>
 
@@ -67,6 +67,7 @@ export default function Hero() {
             {/* CTAs with Doodle Arrow Indicator */}
             <div className="flex flex-wrap items-center gap-4 relative">
               <DoodleButton
+                id="hero-get-in-touch-btn"
                 onClick={() => setIsContactOpen(true)}
                 variant="coral"
                 size="lg"
@@ -98,7 +99,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Illustrated Avatar Showcase (order-1 on mobile, order-2 on lg) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative order-1 lg:order-2">
+          <div className="w-full lg:col-span-5 flex flex-col items-center justify-center relative order-1 lg:order-2">
 
             {/* Hand-drawn Mode Switcher Pills */}
             <div className="flex items-center gap-2 mb-3 bg-paper p-1 rounded-full border-1.5 border-ink shadow-doodle-sm relative z-30">

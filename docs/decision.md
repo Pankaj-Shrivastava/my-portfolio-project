@@ -128,7 +128,7 @@ The original role badge read *"Full-Stack Developer & Tech Explorer"*. Pankaj's 
 
 #### Decision
 1. Updated role subtitle badge to:
-   **`Product Builder & Natural Leader · Driven by Impact`**
+   **`Product Builder & Natural Leader · Driven by Values`**
 2. Crafted the hook paragraph to weave together thinking, research, craftsmanship, and humble collaborative leadership:
    > *"Great products happen where customer empathy meets engineering rigor. By asking the foundational 'why' and diving deep into user behavior, we uncover unarticulated friction before drafting a single requirement. Bringing an engineer's technical depth, a designer's eye for craftsmanship, and a leader's drive for alignment, I help unite teams around a shared vision—because when we build together, we create systems that scale and experiences people genuinely love."*
 
@@ -148,7 +148,7 @@ Visitors clicking "Get in touch" previously triggered a generic `mailto:` link. 
    - Postcard stamp badge: **`🗺️ Wanderer’s Curiosity · Builder’s Focus 💡`**
    - Handcrafted headline: *"The best journeys start with a simple 'hello'."*
    - Subtitle: *"From zero-to-one problem discovery to rallying teams around a shared vision, let’s explore how we can create real impact together."*
-   - Micro doodle note: *"✨ No formalities needed—just honest problem solving!"*
+   - Micro doodle note: *"✨ No formalities needed; just honest problem solving!"*
 2. Interactive Channel Blocks:
    - **Email Block**: Displays `pankajvijayshrivastava@gmail.com` with a pressable **`📋 Copy Email`** button (switches to **`✅ Copied!`** with sparkles) plus a direct mail app button (`↗`).
    - **LinkedIn Block**: Displays profile path and a pressable **`Connect on LinkedIn ↗`** CTA opening `https://www.linkedin.com/in/pankaj-vijay-shrivastava/` in a new tab (`target="_blank" rel="noopener noreferrer"`).
