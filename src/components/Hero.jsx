@@ -194,23 +194,46 @@ export default function Hero() {
         {/* Right Column: Bio Narrative & Value Propositions */}
         <div className="lg:col-span-7 bg-paper-card border-2 border-ink border-sketch-sm p-6 sm:p-8 shadow-doodle relative flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="font-doodle text-xs font-bold uppercase tracking-wider text-doodle-coral bg-doodle-coral/10 px-2.5 py-1 rounded-full border border-doodle-coral/30">
-                Behind the Code
-              </span>
-              <DoodleScribble className="w-16 h-3 text-ink/30" />
+            {/* Header row with 'Behind the Code' and Human Coordinates sticker */}
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div className="flex items-center gap-2">
+                <span className="font-doodle text-xs font-bold uppercase tracking-wider text-doodle-coral bg-doodle-coral/10 px-2.5 py-1 rounded-full border border-doodle-coral/30">
+                  Behind the Code
+                </span>
+                <DoodleScribble className="w-12 h-3 text-ink/30 hidden sm:block" />
+              </div>
+
+              {/* Decoration 1: Human Coordinates Sticker Strip */}
+              <div className="inline-flex items-center flex-wrap gap-1.5 px-3 py-1 bg-doodle-mustard/25 border border-ink/40 rounded-full font-doodle text-xs font-bold text-ink shadow-doodle-xs -rotate-0.5">
+                {aboutContent.tags ? aboutContent.tags.join(' · ') : '🎨 Artist · 🍳 Home Cook · 💛 Father · 🧭 Traveler · ⚡ Builder'}
+              </div>
             </div>
 
-            <h2 className="text-3xl font-bold font-doodle text-ink mb-4">
-              Full-Stack Engineering with Product Management Instincts
+            {/* Title & Subtitle */}
+            <h2 className="text-3xl sm:text-4xl font-bold font-doodle text-ink mb-1.5 leading-tight">
+              {aboutContent.title || 'An Artist’s Soul, an Engineer’s Mind, a Leader’s Heart'}
             </h2>
 
-            <div className="text-base text-ink-light leading-relaxed space-y-4 mb-6">
+            <p className="font-doodle text-base sm:text-lg font-semibold text-doodle-coral mb-5 flex items-center gap-2">
+              <span>{aboutContent.subtitle || 'From Small-Town Roots to Scaling Systems with Care'}</span>
+            </p>
+
+            {/* 3-Paragraph Authentic Narrative Story */}
+            <div className="text-base text-ink-light leading-relaxed space-y-4 mb-6 font-sans">
               {aboutContent.bio.map((paragraph, index) => (
-                <p key={index} className="leading-relaxed">
+                <p key={index} className="leading-relaxed text-[15px] sm:text-base">
                   {paragraph}
                 </p>
               ))}
+            </div>
+
+            {/* Decoration 2: Cozy Corner Accent */}
+            <div className="flex items-center justify-end">
+              <div className="inline-flex items-center gap-2 font-doodle text-xs text-ink-muted/80 bg-paper px-2.5 py-1 rounded-lg border border-ink/20 shadow-doodle-xs -rotate-1 mb-2">
+                <span>☕ Morning curiosity</span>
+                <span className="text-ink/30">·</span>
+                <span>✈️ New horizons</span>
+              </div>
             </div>
           </div>
 

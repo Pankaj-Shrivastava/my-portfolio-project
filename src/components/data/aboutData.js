@@ -1,14 +1,10 @@
 export const aboutContent = {
+  title: "An Artist’s Soul, an Engineer’s Mind, a Leader’s Heart",
+  subtitle: "From Small-Town Roots to Scaling Systems with Care",
+  tags: ["🎨 Artist", "🍳 Home Cook", "💛 Father", "🧭 Traveler", "⚡ Builder"],
   bio: [
-    `I majored in Information Technology and am passionate about building 
-products that solve real user problems. With a background in product 
-management and a focus on user experience, I've led cross-functional 
-teams to deliver innovative solutions. Currently leveraging data-driven 
-insights to inform strategic decisions and drive business growth.`,
-    `What gets brought to the table: technical depth with product 
-thinking. Someone who doesn't just execute - asks why it 
-matters, challenges assumptions when needed, and prioritizes 
-based on impact. Systems that scale, teams that trust 
-each other, and products people actually want to use.`,
+    `Growing up as the elder son in a close-knit small town, responsibility wasn’t a lesson I was taught—it was a way of living. From organizing school functions and addressing student assemblies on stage to facing steep learning curves where I initially stumbled before excelling, I learned early that true leadership isn’t about being the loudest voice in the room. It’s about creating order where there’s ambiguity, listening with genuine intent, and discovering that momentum comes from humble service and the willingness to master hard things from first principles.`,
+    `In technology, that foundation shaped how I build and collaborate. Having worked across complex enterprise systems, I know that the best technical solutions aren't the ones with the most lines of code, but the ones that eliminate genuine friction for people. As an engineer with product instincts, my natural role is to be a bridge: whether identifying a technical constraint early to help a designer and PM pivot to a win-win experience, or building a prototype single-handedly in a week and turning that learning into a workshop to uplift thirty teammates. I look past the dashboard metrics to advocate for the human on the other side of the screen.`,
+    `Beyond the code, who I am at work is deeply tied to who I am in life. At heart, I am an artist drawn to the stage, a home cook who finds joy in feeding loved ones, a father learning patience and wonder through raising a child, and an avid traveler who loves exploring new cities and cultures. When I’m not deconstructing business models or geopolitics over morning coffee, I’m observing how everyday human behavior shapes the world. I bring that same patient, empathetic, family-first grounding to every team I join—fostering psychological safety and uniting cross-functional partners around a shared vision.`,
   ],
 };

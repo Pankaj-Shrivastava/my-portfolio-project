@@ -17,6 +17,7 @@
 | **ADR-07** | Hero Positioning as Product Builder, Natural Leader & Collaborative Catalyst | **Accepted** | Oct 2026 |
 | **ADR-08** | Contact Postcard Modal with Copy Email & LinkedIn Redirection | **Accepted** | Oct 2026 |
 | **ADR-09** | Scroll Restoration Stabilization & Reload Drift Elimination | **Accepted** | Oct 2026 |
+| **ADR-10** | Authentic Behavioral Bio Narrative & Human Dimension Storytelling | **Accepted** | Oct 2026 |
 
 ---
 
@@ -178,6 +179,31 @@ On consecutive browser reloads, the screen was creeping down little by little. T
 #### Consequences
 - 100% eliminated reload scroll creep across repeated browser refreshes.
 - Zero layout jitter while preserving smooth hash scrolling to target sections.
+
+---
+
+### ADR-10: Authentic Behavioral Bio Narrative & Human Dimension Storytelling
+
+#### Context
+The original bio section under "Behind the Code" was a generic corporate summary. Pankaj's core differentiation is his authentic personal journey, natural leadership rooted in small-town responsibility, cross-functional bridge-building between engineering and product/design, and rich human dimension (artist, father, cook, traveler, systems thinker).
+
+#### Decision
+1. **Title & Subtitle**:
+   - Title: **`An Artist’s Soul, an Engineer’s Mind, a Leader’s Heart`**
+   - Subtitle: **`From Small-Town Roots to Scaling Systems with Care`**
+2. **Three-Paragraph Story Arc (`aboutData.js`)**:
+   - **Paragraph 1**: Roots, eldest son leadership, public speaking, and learning that leadership is about creating order out of ambiguity and mastering hard domains from first principles.
+   - **Paragraph 2**: Engineering depth and product instincts—translating technical constraints into win-win design alternatives, rapid 1-week 0-to-1 prototyping, and uplifting 30+ colleagues.
+   - **Paragraph 3**: The human dimension—artist, home cook, devoted father, traveler, and observer of human behavior and business models.
+3. **Doodle Decorations**:
+   - Integrated the **"Human Coordinates"** sticker strip (`🎨 Artist · 🍳 Home Cook · 💛 Father · 🧭 Traveler · ⚡ Builder`).
+   - Integrated cozy corner accent (`☕ Morning curiosity · ✈️ New horizons`).
+   - Retained clean typography without cluttering vines for optimal long-form reading comfort.
+
+#### Consequences
+- Creates an immediate, deep emotional hook with recruiters, hiring managers, and prospective collaborators.
+- Showcases essential soft skills and behavioral strengths without dry resume bullet points.
+
 
 
 
