@@ -69,7 +69,7 @@ export default function ContactModal({ isOpen, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-50 overflow-y-auto px-4 py-8 sm:py-12 flex min-h-screen items-center justify-center"
     >
       {/* Dimmed Sketchbook Backdrop with Soft Blur */}
       <div
@@ -77,8 +77,8 @@ export default function ContactModal({ isOpen, onClose }) {
         className="fixed inset-0 bg-ink/50 backdrop-blur-sm transition-opacity animate-in fade-in duration-200"
       />
 
-      {/* Main Postcard Modal Card */}
-      <div className="relative w-full max-w-lg bg-paper-card border-2 border-ink border-sketch shadow-doodle-lg p-6 sm:p-8 z-10 animate-in zoom-in-95 fade-in duration-200">
+      {/* Main Postcard Modal Card with clean top & bottom margins */}
+      <div className="relative w-full max-w-lg my-auto bg-paper-card border-2 border-ink border-sketch shadow-doodle-lg p-5 sm:p-7 z-10 animate-in zoom-in-95 fade-in duration-200">
         
         {/* Top Paper Tape Sticker Decor */}
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-32 h-6 bg-doodle-mustard/60 border border-ink/40 -rotate-1 pointer-events-none shadow-sm flex items-center justify-center">
@@ -92,13 +92,13 @@ export default function ContactModal({ isOpen, onClose }) {
           type="button"
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute top-4 right-4 w-8 h-8 rounded-full border-1.5 border-ink bg-paper hover:bg-doodle-coral hover:text-white transition-all shadow-doodle-xs flex items-center justify-center font-bold text-sm cursor-pointer pressable-btn"
+          className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full border-1.5 border-ink bg-paper hover:bg-doodle-coral hover:text-white transition-all shadow-doodle-xs flex items-center justify-center font-bold text-sm cursor-pointer pressable-btn"
         >
           ✕
         </button>
 
         {/* Postcard Stamp / Badge (Category A Option 4) */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-doodle-mustard/30 border border-ink rounded-full text-xs font-doodle font-bold text-ink mb-3 shadow-doodle-xs">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-doodle-mustard/30 border border-ink rounded-full text-xs font-doodle font-bold text-ink mb-2 shadow-doodle-xs">
           <span>🗺️ Wanderer’s Curiosity · Builder’s Focus 💡</span>
         </div>
 
@@ -111,21 +111,21 @@ export default function ContactModal({ isOpen, onClose }) {
         </h3>
 
         {/* Sub-Message */}
-        <p className="font-sans text-sm text-ink-muted leading-relaxed mb-4">
+        <p className="font-sans text-xs sm:text-sm text-ink-muted leading-relaxed mb-3">
           From zero-to-one problem discovery to rallying teams around a shared vision, let’s explore how we can create real impact together.
         </p>
 
         {/* Micro Doodle Annotation */}
-        <div className="flex items-center gap-1.5 text-xs font-doodle text-doodle-coral font-bold mb-6 -rotate-1">
+        <div className="flex items-center gap-1.5 text-xs font-doodle text-doodle-coral font-bold mb-4 -rotate-1">
           <DoodleSparkle className="w-3.5 h-3.5 text-doodle-mustard" />
           <span>No formalities needed—just honest problem solving!</span>
         </div>
 
         {/* Contact Methods Stack */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           
           {/* Email Block */}
-          <div className="bg-paper p-4 rounded-xl border-1.5 border-ink shadow-doodle-sm">
+          <div className="bg-paper p-3.5 sm:p-4 rounded-xl border-1.5 border-ink shadow-doodle-sm">
             <div className="flex items-center justify-between mb-2">
               <span className="font-doodle text-xs font-bold text-ink uppercase tracking-wider flex items-center gap-1.5">
                 <span>✉️ Email Address</span>
@@ -165,7 +165,7 @@ export default function ContactModal({ isOpen, onClose }) {
           </div>
 
           {/* LinkedIn Block */}
-          <div className="bg-paper p-4 rounded-xl border-1.5 border-ink shadow-doodle-sm">
+          <div className="bg-paper p-3.5 sm:p-4 rounded-xl border-1.5 border-ink shadow-doodle-sm">
             <div className="flex items-center justify-between mb-2">
               <span className="font-doodle text-xs font-bold text-ink uppercase tracking-wider flex items-center gap-1.5">
                 <span>💼 Professional Network</span>
@@ -194,7 +194,7 @@ export default function ContactModal({ isOpen, onClose }) {
         </div>
 
         {/* Modal Bottom Sign-off */}
-        <div className="mt-6 pt-4 border-t-2 border-dashed border-ink/20 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-doodle text-ink-muted">
+        <div className="mt-4 pt-3 border-t-2 border-dashed border-ink/20 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-doodle text-ink-muted">
           <span>📍 Greater Bengaluru Area</span>
           <span className="text-doodle-coral font-bold">⚡ Usually replies within 24h</span>
         </div>

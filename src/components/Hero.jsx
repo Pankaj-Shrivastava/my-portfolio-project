@@ -29,8 +29,8 @@ export default function Hero() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-          {/* Left Column: Greeting, Role Badge & CTA */}
-          <div className="lg:col-span-7 flex flex-col items-start relative z-10">
+          {/* Left Column: Greeting, Role Badge & CTA (order-2 on mobile, order-1 on lg) */}
+          <div className="lg:col-span-7 flex flex-col items-start relative z-10 order-2 lg:order-1">
 
             {/* Top Micro Doodle with Arrow */}
             <div className="flex items-center gap-2 mb-1">
@@ -97,8 +97,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Illustrated Avatar Showcase (Dual Mode!) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
+          {/* Right Column: Illustrated Avatar Showcase (order-1 on mobile, order-2 on lg) */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative order-1 lg:order-2">
 
             {/* Hand-drawn Mode Switcher Pills */}
             <div className="flex items-center gap-2 mb-3 bg-paper p-1 rounded-full border-1.5 border-ink shadow-doodle-sm relative z-30">
