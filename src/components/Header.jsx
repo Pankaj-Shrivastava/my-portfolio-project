@@ -18,7 +18,7 @@ export default function Header() {
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 100);
   };

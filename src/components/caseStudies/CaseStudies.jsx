@@ -23,7 +23,7 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section id="case-studies" className="mt-20 relative">
+    <section id="case-studies" className="mt-20 relative scroll-mt-28">
       <div className="flex items-center gap-3 mb-8">
         <DoodleRaysLeft className="w-6 h-6 text-doodle-mustard" />
         <h2 className="text-3xl sm:text-4xl font-extrabold font-doodle text-ink tracking-tight">

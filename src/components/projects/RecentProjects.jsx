@@ -73,7 +73,7 @@ export default function RecentProjects() {
   ];
 
   return (
-    <section id="projects" className="mt-24 mb-16 relative">
+    <section id="projects" className="mt-24 mb-16 relative scroll-mt-32">
       
       {/* ── Section Title with Hand-drawn Rays & Highlighter (Image 1 & 3) ── */}
       <div className="text-center relative mb-12">

@@ -38,7 +38,7 @@ export default function WorkExperience() {
   ];
 
   return (
-    <section id="work-experience" className="mt-20 relative">
+    <section id="work-experience" className="mt-20 relative scroll-mt-28">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
           <DoodleRaysLeft className="w-6 h-6 text-doodle-mustard" />

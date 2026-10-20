@@ -68,7 +68,7 @@ export default function PMNotebook() {
 
   return (
     <main className="flex-1 container mx-auto px-6 py-12 max-w-6xl">
-      <section id="pm-notebook">
+      <section id="pm-notebook" className="scroll-mt-28">
         
         {/* Notebook Header Banner */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b-2 border-dashed border-ink/20">

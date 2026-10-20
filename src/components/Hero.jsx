@@ -16,7 +16,7 @@ export default function Hero() {
   const [avatarMode, setAvatarMode] = useState('explorer');
 
   return (
-    <section id="about" className="pt-6 pb-16 relative">
+    <section id="about" className="pt-6 pb-16 relative scroll-mt-24">
       {/* ── Top Hero Banner (Matching Image 1 & 2) ────────────────────────── */}
       <div className="bg-paper-card border-2 border-ink border-sketch p-6 sm:p-10 shadow-doodle-md mb-12 relative overflow-hidden">
         
