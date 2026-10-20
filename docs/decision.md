@@ -14,6 +14,7 @@
 | **ADR-04** | Sticky Header Scroll Margins (`scroll-mt-*`) Standard | **Accepted** | Oct 2026 |
 | **ADR-05** | Tactile 3D Clickability & Doodle Micro-Interactions | **Accepted** | Oct 2026 |
 | **ADR-06** | Dual Avatar Mode (Explorer vs Developer Persona) | **Accepted** | Oct 2026 |
+| **ADR-07** | Hero Positioning as Product Builder, Natural Leader & Collaborative Catalyst | **Accepted** | Oct 2026 |
 
 ---
 
@@ -116,3 +117,21 @@ Integrated an interactive mode switcher in `Hero.jsx`:
 - **Explorer Mode**: Displays the full-color vintage motorcycle illustration in nature.
 - **Developer Mode**: Displays the developer desk portrait.
 - Accessible via interactive pill toggles (`🏍️ Explorer` vs `💻 Developer`).
+
+---
+
+### ADR-07: Hero Positioning as Product Builder, Natural Leader & Collaborative Catalyst
+
+#### Context
+The original role badge read *"Full-Stack Developer & Tech Explorer"*. Pankaj's career vision and core differentiation center on product leadership, first-principles problem solving, user discovery, and rallying cross-functional teams toward impact.
+
+#### Decision
+1. Updated role subtitle badge to:
+   **`Product Builder & Natural Leader · Driven by Impact`**
+2. Crafted the hook paragraph to weave together thinking, research, craftsmanship, and humble collaborative leadership:
+   > *"Great products happen where customer empathy meets engineering rigor. By asking the foundational 'why' and diving deep into user behavior, we uncover unarticulated friction before drafting a single requirement. Bringing an engineer's technical depth, a designer's eye for craftsmanship, and a leader's drive for alignment, I help unite teams around a shared vision—because when we build together, we create systems that scale and experiences people genuinely love."*
+
+#### Consequences
+- Directly addresses hiring managers and recruiters looking for high-ownership Product Managers and technical leaders.
+- Communicates genuine servant leadership and team-first collaboration over solo heroics.
+

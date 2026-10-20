@@ -1,7 +1,7 @@
 # Project Context: Pankaj Shrivastava's Portfolio
 
 ## 1. Executive Summary & Purpose
-This repository houses the personal portfolio and digital notebook for **Pankaj Shrivastava**—a Full-Stack Developer, AI Engineering Analyst, and Product Management Fellow. The website serves as a high-impact interactive resume, showcase of featured projects, case studies, career timeline, and an editorial **PM Notebook** driven by a headless CMS (Contentful).
+This repository houses the personal portfolio and digital notebook for **Pankaj Shrivastava**—a Product Builder, Natural Leader, and Aspiring Product Manager driven by customer empathy, engineering rigor, and measurable impact. The website serves as a high-impact interactive resume, showcase of featured projects, product teardowns, career timeline, and an editorial **PM Notebook** driven by a headless CMS (Contentful).
 
 The portfolio is evolving from a conventional minimalist corporate layout into a **warm, neo-groovy, hand-drawn "doodle" sketchbook aesthetic** while rigorously maintaining all existing functionality, accessibility, and navigation structures.
 
