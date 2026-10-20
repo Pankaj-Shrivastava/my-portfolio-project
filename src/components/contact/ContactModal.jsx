@@ -79,7 +79,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
       {/* Main Postcard Modal Card with clean top & bottom margins */}
       <div className="relative w-full max-w-lg my-auto bg-paper-card border-2 border-ink border-sketch shadow-doodle-lg p-5 sm:p-7 z-10 animate-in zoom-in-95 fade-in duration-200">
-        
+
         {/* Top Paper Tape Sticker Decor */}
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-32 h-6 bg-doodle-mustard/60 border border-ink/40 -rotate-1 pointer-events-none shadow-sm flex items-center justify-center">
           <span className="font-doodle text-[10px] text-ink font-bold tracking-wider uppercase opacity-75">
@@ -118,12 +118,12 @@ export default function ContactModal({ isOpen, onClose }) {
         {/* Micro Doodle Annotation */}
         <div className="flex items-center gap-1.5 text-xs font-doodle text-doodle-coral font-bold mb-4 -rotate-1">
           <DoodleSparkle className="w-3.5 h-3.5 text-doodle-mustard" />
-          <span>No formalities needed—just honest problem solving!</span>
+          <span>No formalities needed; just honest problem solving!</span>
         </div>
 
         {/* Contact Methods Stack */}
         <div className="space-y-3">
-          
+
           {/* Email Block */}
           <div className="bg-paper p-3.5 sm:p-4 rounded-xl border-1.5 border-ink shadow-doodle-sm">
             <div className="flex items-center justify-between mb-2">
@@ -145,11 +145,10 @@ export default function ContactModal({ isOpen, onClose }) {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className={`pressable-btn px-3 py-1.5 rounded-lg font-doodle text-xs font-bold border-1.5 border-ink transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap flex-1 sm:flex-initial ${
-                    copied
-                      ? 'bg-doodle-sage text-white shadow-[1px_1px_0px_#231F20]'
-                      : 'bg-doodle-coral text-white shadow-doodle-xs hover:bg-doodle-coral-dark'
-                  }`}
+                  className={`pressable-btn px-3 py-1.5 rounded-lg font-doodle text-xs font-bold border-1.5 border-ink transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap flex-1 sm:flex-initial ${copied
+                    ? 'bg-doodle-sage text-white shadow-[1px_1px_0px_#231F20]'
+                    : 'bg-doodle-coral text-white shadow-doodle-xs hover:bg-doodle-coral-dark'
+                    }`}
                 >
                   <span>{copied ? '✅ Copied!' : '📋 Copy Email'}</span>
                 </button>
@@ -176,9 +175,6 @@ export default function ContactModal({ isOpen, onClose }) {
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-1">
-              <div className="text-xs font-doodle text-ink-muted">
-                Fastest response for recruitment, referrals & product leadership discussions.
-              </div>
               <a
                 href={linkedinUrl}
                 target="_blank"
