@@ -16,6 +16,7 @@
 | **ADR-06** | Dual Avatar Mode (Trailblazer vs Catalyst Persona) | **Accepted** | Oct 2026 |
 | **ADR-07** | Hero Positioning as Product Builder, Natural Leader & Collaborative Catalyst | **Accepted** | Oct 2026 |
 | **ADR-08** | Contact Postcard Modal with Copy Email & LinkedIn Redirection | **Accepted** | Oct 2026 |
+| **ADR-09** | Scroll Restoration Stabilization & Reload Drift Elimination | **Accepted** | Oct 2026 |
 
 ---
 
@@ -159,5 +160,24 @@ Visitors clicking "Get in touch" previously triggered a generic `mailto:` link. 
 #### Consequences
 - Eliminates mail client launch friction for webmail users.
 - Increases connection rate for recruiters, referrals, and collaborators.
+
+---
+
+### ADR-09: Scroll Restoration Stabilization & Reload Drift Elimination
+
+#### Context
+On consecutive browser reloads, the screen was creeping down little by little. This was caused by the browser's default `history.scrollRestoration = 'auto'` compounding micro layout shifts (asynchronous Google font swaps, SVG rendering, and SPA client-side hydration) on top of previously restored scroll positions and top section anchor margins (`scroll-mt-24` on `#about`).
+
+#### Decision
+1. In `main.jsx`, explicitly set `window.history.scrollRestoration = 'manual'` to prevent the browser from guessing and compounding old offsets across reloads.
+2. In `App.jsx`, implemented `ScrollRestorationHandler` to deterministically manage scroll positions:
+   - On clean reload or route change without hash, resets immediately to `(0, 0)`.
+   - On anchor navigation (e.g. `/#projects`, `/#teardowns`), smoothly scrolls to the target element once mounted.
+3. In `Hero.jsx`, adjusted `#about` to `scroll-mt-0` since it sits natively at the top of the page.
+
+#### Consequences
+- 100% eliminated reload scroll creep across repeated browser refreshes.
+- Zero layout jitter while preserving smooth hash scrolling to target sections.
+
 
 

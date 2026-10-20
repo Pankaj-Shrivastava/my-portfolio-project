@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import WorkExperience from './components/experience/WorkExperience'
@@ -9,6 +9,28 @@ import CaseStudies from './components/caseStudies/CaseStudies'
 import Education from './components/education/Education'
 import ProjectPage from './components/projects/ProjectPage'
 import RecentProjects from './components/projects/RecentProjects'
+
+function ScrollRestorationHandler() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      // Deterministically reset scroll to top on reload / page navigation without hash
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
 
 function Home() {
   return (
@@ -25,6 +47,7 @@ function Home() {
 export default function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
+      <ScrollRestorationHandler />
       <div className="min-h-screen flex flex-col bg-paper text-ink font-sans selection:bg-doodle-mustard selection:text-ink">
         <Header />
         <Routes>
