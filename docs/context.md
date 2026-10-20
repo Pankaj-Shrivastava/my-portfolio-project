@@ -86,8 +86,8 @@ my-portfolio-project/
   - Chronological vertical timeline connecting milestones with dots and SVG-style stems.
   - Interactive tooltip revealing start/end dates on hover or tap (touch-device aware).
   - Categorizes items into `work` and `education` with distinct styling.
-- **`CaseStudies.jsx`**:
-  - 2-column grid of strategic case studies (e.g., Feature Revamp & Market Expansion) with "Read more →" interaction.
+- **`CaseStudies.jsx` (Teardowns / Under the Hood)**:
+  - 2-column grid of strategic product teardowns with "under the hood 🔍" doodle annotation, deconstructing UX friction, funnels, and enterprise system scale with "Inspect Teardown →" action buttons.
 - **`WorkExperience.jsx`**:
   - Vertical stack of role entries featuring accent vertical badges, time period pills, company titles, and responsibilities.
 - **Featured Projects Section (`App.jsx`)**:
