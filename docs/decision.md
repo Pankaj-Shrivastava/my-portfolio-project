@@ -18,6 +18,7 @@
 | **ADR-08** | Contact Postcard Modal with Copy Email & LinkedIn Redirection | **Accepted** | Oct 2026 |
 | **ADR-09** | Scroll Restoration Stabilization & Reload Drift Elimination | **Accepted** | Oct 2026 |
 | **ADR-10** | Authentic Behavioral Bio Narrative & Human Dimension Storytelling | **Accepted** | Oct 2026 |
+| **ADR-11** | Merged Journey Milestones Master Card & Treatment 2 Minimalist Typography | **Accepted** | Oct 2026 |
 
 ---
 
@@ -203,6 +204,28 @@ The original bio section under "Behind the Code" was a generic corporate summary
 #### Consequences
 - Creates an immediate, deep emotional hook with recruiters, hiring managers, and prospective collaborators.
 - Showcases essential soft skills and behavioral strengths without dry resume bullet points.
+
+---
+
+### ADR-11: Merged Journey Milestones Master Card & Treatment 2 Minimalist Typography
+
+#### Context
+Following the narrative rewrite, presenting the Experience & Education Timeline and the "An Artist's Soul..." bio story as two detached cards caused height imbalance on desktop (timeline card was shorter than story card) and fragmented scrolling on mobile. Additionally, heavy boxed micro-pills inside the third paragraph and dense highlighters in the first two paragraphs added visual noise.
+
+#### Decision
+1. **Unified Master Sketchbook Card**:
+   - Combined `<Timeline />` and the bio story into a single master sketchbook card (`border-sketch`, `shadow-doodle-md`, `bg-paper-card`).
+   - **Desktop (`lg`+)**: Split rail with Journey Milestones on the left (4 cols, framed in `bg-paper/60`) and the narrative story on the right (8 cols).
+   - **Mobile / Tablet (`< lg`)**: Dynamic reordering placing the story first (`order-1`), followed immediately by the interactive Journey Milestones (`order-2`).
+2. **Typography Refinement (Treatment 2: Clean & Elegant)**:
+   - **Undid Highlighter Marks in Paragraphs 1 & 2**: Reverted leadership phrases (`"creating order where there’s ambiguity"`, `"master hard things from first principles"`, `"eliminate genuine friction"`, and `"pragmatic bridge"`) back to clean, natural text for an effortless, undistracted reading experience.
+   - **Minimalist Pastel Marks in Paragraph 3**: Replaced the tactile boxed button pills for `🎨 artist`, `🍳 home cook`, `💛 father`, and `🧭 traveler` with Treatment 2 (minimalist pastel highlighter marks without dark borders, heavy shadows, or tilted rotations).
+   - Maintained `whitespace-nowrap` on emoji-word pairings to ensure emojis never separate from their nouns during line wrapping.
+
+#### Consequences
+- Perfect typographic rhythm and line height across all viewports.
+- Clean, sophisticated aesthetic that balances playful doodle warmth with executive readability.
+
 
 
 

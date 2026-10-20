@@ -175,61 +175,82 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Bio & Timeline Detailed Grid ──────────────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* ── Unified Bio & Journey Master Card (Merged Concept A) ─────────── */}
+      <div className="bg-paper-card border-2 border-ink border-sketch p-6 sm:p-8 md:p-10 shadow-doodle-md relative">
 
-        {/* Left Column: Interactive Timeline Card */}
-        <div className="lg:col-span-5 bg-paper-card border-2 border-ink border-sketch-sm p-6 shadow-doodle relative">
-          <div className="flex items-center justify-between pb-3 border-b-2 border-dashed border-ink/20 mb-4">
-            <h3 className="text-2xl font-bold font-doodle text-ink flex items-center gap-2">
-              <span>Experience & Education</span>
-            </h3>
-            <span className="text-xs font-doodle bg-doodle-mustard/30 px-2 py-0.5 rounded border border-ink/30">
-              Interactive
+        {/* Header row with 'Behind the Code' and Human Coordinates sticker strip */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b-2 border-dashed border-ink/20">
+          <div className="flex items-center gap-2">
+            <span className="font-doodle text-xs font-bold uppercase tracking-wider text-doodle-coral bg-doodle-coral/10 px-3 py-1 rounded-full border border-doodle-coral/30">
+              Behind the Code
             </span>
+            <DoodleScribble className="w-12 h-3 text-ink/30 hidden sm:block" />
           </div>
-          <Timeline />
+
+          {/* Decoration 1: Human Coordinates Sticker Strip */}
+          <div className="inline-flex items-center flex-wrap gap-1.5 px-3.5 py-1 bg-doodle-mustard/25 border border-ink/40 rounded-full font-doodle text-xs font-bold text-ink shadow-doodle-xs -rotate-0.5">
+            <span>🎨 Artist</span>
+            <span className="text-ink/30">·</span>
+            <span>🍳 Home Cook</span>
+            <span className="text-ink/30">·</span>
+            <span>💛 Father</span>
+            <span className="text-ink/30">·</span>
+            <span>🧭 Traveler</span>
+            <span className="text-ink/30">·</span>
+            <span>⚡ Builder</span>
+          </div>
         </div>
 
-        {/* Right Column: Bio Narrative & Value Propositions */}
-        <div className="lg:col-span-7 bg-paper-card border-2 border-ink border-sketch-sm p-6 sm:p-8 shadow-doodle relative flex flex-col justify-between">
-          <div>
-            {/* Header row with 'Behind the Code' and Human Coordinates sticker */}
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-              <div className="flex items-center gap-2">
-                <span className="font-doodle text-xs font-bold uppercase tracking-wider text-doodle-coral bg-doodle-coral/10 px-2.5 py-1 rounded-full border border-doodle-coral/30">
-                  Behind the Code
-                </span>
-                <DoodleScribble className="w-12 h-3 text-ink/30 hidden sm:block" />
-              </div>
+        {/* Title & Subtitle */}
+        <div className="mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold font-doodle text-ink mb-2 leading-tight">
+            {aboutContent.title}
+          </h2>
+          <p className="font-doodle text-base sm:text-lg font-semibold text-doodle-coral flex items-center gap-2">
+            <span>{aboutContent.subtitle}</span>
+          </p>
+        </div>
 
-              {/* Decoration 1: Human Coordinates Sticker Strip */}
-              <div className="inline-flex items-center flex-wrap gap-1.5 px-3 py-1 bg-doodle-mustard/25 border border-ink/40 rounded-full font-doodle text-xs font-bold text-ink shadow-doodle-xs -rotate-0.5">
-                {aboutContent.tags ? aboutContent.tags.join(' · ') : '🎨 Artist · 🍳 Home Cook · 💛 Father · 🧭 Traveler · ⚡ Builder'}
-              </div>
+        {/* ── Responsive Split: Timeline Rail (Left on Desktop) + Story (Right on Desktop) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+          {/* Timeline Rail: on mobile/tablet it renders below story (order-2 lg:order-1), 4 cols on lg */}
+          <div className="w-full lg:col-span-4 order-2 lg:order-1 bg-paper/60 p-4 sm:p-5 rounded-2xl border-1.5 border-ink/25 shadow-doodle-xs">
+            <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-dashed border-ink/20">
+              <span className="font-doodle text-sm font-bold text-ink flex items-center gap-1.5">
+                <span>📍 Journey Milestones</span>
+              </span>
+              <span className="text-[10px] font-doodle bg-doodle-mustard/30 px-1.5 py-0.5 rounded border border-ink/30">
+                Interactive
+              </span>
             </div>
+            <Timeline />
+          </div>
 
-            {/* Title & Subtitle */}
-            <h2 className="text-3xl sm:text-4xl font-bold font-doodle text-ink mb-1.5 leading-tight">
-              {aboutContent.title || 'An Artist’s Soul, an Engineer’s Mind, a Leader’s Heart'}
-            </h2>
+          {/* Story Column: on mobile it renders first (order-1 lg:order-2), 8 cols on lg */}
+          <div className="w-full lg:col-span-8 order-1 lg:order-2 flex flex-col justify-between">
+            <div className="text-base text-ink-light leading-relaxed space-y-4 font-sans">
 
-            <p className="font-doodle text-base sm:text-lg font-semibold text-doodle-coral mb-5 flex items-center gap-2">
-              <span>{aboutContent.subtitle || 'From Small-Town Roots to Scaling Systems with Care'}</span>
-            </p>
+              {/* Paragraph 1 - clean and natural text */}
+              <p className="leading-relaxed text-[15px] sm:text-base">
+                Growing up as the elder son in a close-knit small town, responsibility wasn’t a lesson I was taught - it was a way of living. From organizing school functions and addressing student assemblies on stage to facing steep learning curves where I initially stumbled before excelling, I learned early that true leadership isn’t about being the loudest voice in the room. It’s about creating order where there’s ambiguity, listening with genuine intent, and discovering that momentum comes from humble service and the willingness to master hard things from first principles.
+              </p>
 
-            {/* 3-Paragraph Authentic Narrative Story */}
-            <div className="text-base text-ink-light leading-relaxed space-y-4 mb-6 font-sans">
-              {aboutContent.bio.map((paragraph, index) => (
-                <p key={index} className="leading-relaxed text-[15px] sm:text-base">
-                  {paragraph}
-                </p>
-              ))}
+              {/* Paragraph 2 - clean and natural text */}
+              <p className="leading-relaxed text-[15px] sm:text-base">
+                In technology, that foundation shaped how I build and collaborate. Having worked across complex enterprise systems, I know that the best technical solutions aren't the ones with the most lines of code, but the ones that eliminate genuine friction for people. As an engineer with product instincts, my natural role is to be a pragmatic bridge: whether identifying a technical constraint early to help a designer and PM pivot to a win-win experience, or building a prototype single-handedly in a week and turning that learning into a workshop to uplift teammates. I look past the dashboard metrics to advocate for the human on the other side of the screen.
+              </p>
+
+              {/* Paragraph 3 - natural text with icons near keywords (no background, no bold) */}
+              <p className="leading-relaxed text-[15px] sm:text-base">
+                Beyond the code, who I am at work is deeply tied to who I am in life. At heart, I am an <span className="whitespace-nowrap">🎨 artist</span> drawn to the stage, a <span className="whitespace-nowrap">🍳 home cook</span> who finds joy in feeding loved ones, a devoted <span className="whitespace-nowrap">💛 father</span> learning patience and wonder through raising a child, and an avid <span className="whitespace-nowrap">🧭 traveler</span> who loves exploring new cities and cultures. When I’m not deconstructing business models or geopolitics over morning coffee, I’m observing how everyday human behavior shapes the world. I bring that same patient, empathetic, family-first grounding to every team I join - fostering psychological safety and uniting cross-functional partners around a shared vision.
+              </p>
+
             </div>
 
             {/* Decoration 2: Cozy Corner Accent */}
-            <div className="flex items-center justify-end">
-              <div className="inline-flex items-center gap-2 font-doodle text-xs text-ink-muted/80 bg-paper px-2.5 py-1 rounded-lg border border-ink/20 shadow-doodle-xs -rotate-1 mb-2">
+            <div className="flex items-center justify-end mt-4">
+              <div className="inline-flex items-center gap-2 font-doodle text-xs text-ink-muted/80 bg-paper px-2.5 py-1 rounded-lg border border-ink/20 shadow-doodle-xs -rotate-1">
                 <span>☕ Morning curiosity</span>
                 <span className="text-ink/30">·</span>
                 <span>✈️ New horizons</span>
@@ -237,38 +258,38 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Social Links & Resume Actions */}
-          <div className="pt-4 border-t-2 border-dashed border-ink/20 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.linkedin.com/in/pankaj-vijay-shrivastava/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View my LinkedIn profile"
-                className="pressable-btn inline-flex items-center gap-2 px-4 py-2 bg-paper-card text-ink rounded-xl font-doodle text-base font-bold shadow-doodle-sm"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}images/linkedin.svg`}
-                  alt="LinkedIn Icon"
-                  className="w-5 h-5"
-                />
-                <span>LinkedIn Profile ↗</span>
-              </a>
+        </div>
 
-              <button
-                type="button"
-                onClick={() => setIsContactOpen(true)}
-                className="pressable-btn inline-flex items-center gap-2 px-4 py-2 bg-doodle-coral text-white rounded-xl font-doodle text-base font-bold shadow-doodle-sm cursor-pointer"
-              >
-                <span>✉️ Email Me</span>
-              </button>
-            </div>
+        {/* Unified Bottom Action & Location Bar */}
+        <div className="mt-8 pt-4 border-t-2 border-dashed border-ink/20 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.linkedin.com/in/pankaj-vijay-shrivastava/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View my LinkedIn profile"
+              className="pressable-btn inline-flex items-center gap-2 px-4 py-2 bg-paper-card text-ink rounded-xl font-doodle text-base font-bold shadow-doodle-sm"
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}images/linkedin.svg`}
+                alt="LinkedIn Icon"
+                className="w-5 h-5"
+              />
+              <span>LinkedIn Profile ↗</span>
+            </a>
 
-            <span className="font-doodle text-xs text-ink-muted">
-              📍 Greater Bengaluru Area
-            </span>
+            <button
+              type="button"
+              onClick={() => setIsContactOpen(true)}
+              className="pressable-btn inline-flex items-center gap-2 px-4 py-2 bg-doodle-coral text-white rounded-xl font-doodle text-base font-bold shadow-doodle-sm cursor-pointer"
+            >
+              <span>✉️ Email Me</span>
+            </button>
           </div>
 
+          <span className="font-doodle text-xs text-ink-muted">
+            📍 Greater Bengaluru Area
+          </span>
         </div>
 
       </div>
